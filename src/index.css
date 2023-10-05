@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ui_block.ui-block-loader {
+  display: none;
+}
+.ui-block-loader {
+  display: flex;
+  align-items: center;
+  overflow: auto;
+  z-index: 99999;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #ffffff87;
+}
+.ui_block_image {
+  width: 100px;
+}
+
+
+.custom-scroll::-webkit-scrollbar {
+  height: 2px;
+  width: 5px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background-color: #272727;
+  width: 10px;
+}

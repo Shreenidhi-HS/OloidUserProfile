@@ -1,0 +1,1 @@
+export const apiEndpoint = import.meta.env.VITE_APP_API_ENDPOINT;
