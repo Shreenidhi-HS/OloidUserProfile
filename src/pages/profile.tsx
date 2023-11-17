@@ -12,110 +12,122 @@ import { UserAvater } from "../assets/utils/icons";
 
 function Profile() {
   const { authContext, setAuthContext } = useContext(LoginContext);
-  const { data: userData, error, isLoading:isUserDataLoading , refetch:refetchUser } = useQuery('userData', getUserData);
+  const { data: userData, isLoading: isUserDataLoading } = useQuery(
+    "userData",
+    getUserData
+  );
   const user = userData?.data.user;
 
-  if(!isUserDataLoading){
+  if (!isUserDataLoading) {
     const newAuthContext = {
       ...authContext,
       userDetail: userData.data.user,
     };
-    console.log(newAuthContext)
-    // setAuthContext(newAuthContext); 
+    // setAuthContext(newAuthContext);
   }
 
-  if(isUserDataLoading){
-    return(
+  if (isUserDataLoading) {
+    return (
       <div className="w-full h-full flex items-center justify-center">
-          <img src="../../public/assets/loader.svg" className="animate-spin m-auto invert m-auto float-center" height={44} width={44} alt="loader" />
-    </div>
-    )
-    
+        <img
+          src="../../public/assets/loader.svg"
+          className="animate-spin m-auto invert m-auto float-center"
+          height={44}
+          width={44}
+          alt="loader"
+        />
+      </div>
+    );
   }
 
   return (
-    <div className=" h-screen p-1">
-      <div className="shadow-lg p-[16px] relative mt-4 md:mt-[10rem] max-w-[90vw] md:w-[82rem] h-fit m-auto rounded-[12px] border-[1px] p-[2rem]">
+    <div className=" h-screen">
+      <div>
         <div className="hidden md:block absolute max-w-fit  top-0 -mt-[20%] md:-mt-[5%] ml-[3%] left-0 overflow-hidden ">
           {isUserDataLoading ? (
             <>
-            <div className="min-h-[120px] min-w-[120px] max-h-[120px] max-w-[120px] rounded-full shadow-xl border-[1px] border-[#272727] p-2 overflow-hidden">
-              <UserAvater fill="black" className="m-auto h-full w-full animate-pulse"/>
-            </div>
+              <div className="min-h-[120px] min-w-[120px] max-h-[120px] max-w-[120px] rounded-full shadow-xl border-[1px] border-[#272727] p-2 overflow-hidden">
+                <UserAvater
+                  fill="black"
+                  className="m-auto h-full w-full animate-pulse"
+                />
+              </div>
             </>
           ) : (
             <>
               <img
-              src={userData?.data.user.Faces[0] === undefined  ?  "../../public/assets/avatar.svg" : userData?.data?.user.Faces[0]?.SignedUrl}
-              className="min-h-[120px] min-w-[120px] max-h-[120px] max-w-[120px] rounded-full shadow-xl border-[1px] border-[#272727] p-2"
-              alt="profile image"
-            />
-            <h2 className="text-black font-bold text-lg mt-2">
-              {user?.DisplayName}
-            </h2>
+                src={
+                  userData?.data.user.Faces[0] === undefined
+                    ? "../../public/assets/avatar.svg"
+                    : userData?.data?.user.Faces[0]?.SignedUrl
+                }
+                className="min-h-[120px] min-w-[120px] max-h-[120px] max-w-[120px] rounded-full shadow-xl border-[1px] border-[#272727] p-2"
+                alt="profile image"
+              />
+              <h2 className="text-[#101828] font-bold text-lg mt-2">
+                {user?.DisplayName}
+              </h2>
             </>
           )}
-         
         </div>
-        <div className="md:hidden flex flex-row items-center gap-4">
-          <div>
-            <img
-              src={userData?.data.user.Faces[0] === undefined  ?  "../../public/assets/avatar.svg" : userData?.data?.user.Faces[0]?.SignedUrl}
-              className="h-[80px] max-w-[80px] min-w-[80px] rounded-full border-[2px] order-[#362ae9] p-2"
-              alt=""
-            />
-          </div>
-          <div className="font-bold text-lg ">{user?.DisplayName}</div>
-        </div>
-        <div className="flex flex-col md:flex-row items-start mt-3 md:mt-[3rem]">
-   
-          <div className="bg-[#e5ebf1] md:bg-white md:ml-[30%] p-3 grid grid-cols-2 gap-[3rem] rounded-[12px] w-fit">
-            <div>
+
+        <div className="flex flex-col md:flex-row items-start">
+          <div className="bg-[#F5F6FA] py-9 px-5 mx-6 grid grid-cols-2 gap-[3rem] rounded-b-lg w-fit">
+            <div className="flex flex-col gap-y-5">
               <div className="flex flex-col gap-1 items-start">
-                <h2 className="font-bold text-[16px] text-black">Full name</h2>
-                <p className="text-[#9A9B9C] text-[14px]">{user?.FullName}</p>
+                <h2 className="font-bold text-[16px] text-[#101828]">
+                  Full name
+                </h2>
+                <p className="text-[#667085] text-sm">{user?.FullName}</p>
               </div>
               <div className="flex flex-col gap-1 items-start">
-                <h2 className="font-bold text-md text-black">Badge ID</h2>
-                <p className="text-[#9A9B9C] text-[14px]">
-                  {user?.BadgeID ? user.BadgeID : "Not Available"}
+                <h2 className="font-bold text-sm text-[#101828]">
+                  Employee ID
+                </h2>
+                <p className="text-[#667085] text-sm max-w-[100px] break-all">
+                  {user?.PrimaryID}
                 </p>
               </div>
               <div className="flex flex-col gap-1 items-start">
-                <h2 className="font-bold text-md text-black">Email ID</h2>
-                <p className="text-[#9A9B9C] text-[14px]">{user?.Email}</p>
+                <h2 className="font-bold text-sm text-[#101828]">Email ID</h2>
+                <p className="text-[#667085] text-sm">{user?.Email}</p>
               </div>
               <div className="flex flex-col gap-1 items-start">
-                <h2 className="font-bold text-md text-black">Phone</h2>
-                <p className="text-[#9A9B9C] text-[14px]">
+                <h2 className="font-bold text-sm text-[#101828]">Phone</h2>
+                <p className="text-[#667085] text-sm">
                   {user?.UserMetadata?.person?.phone
                     ? user?.UserMetadata?.person?.phone
                     : "Not Available"}
                 </p>
               </div>
             </div>
-            <div>
+            <div className="flex flex-col gap-y-5">
               <div className="flex flex-col gap-1 items-start">
-                <h2 className="font-bold text-[16px] text-black">
+                <h2 className="font-bold text-sm text-[#101828]">
                   Display name
                 </h2>
-                <p className="text-[#9A9B9C] text-[14px]">
-                  {user?.DisplayName}
-                </p>
+                <p className="text-[#667085] text-sm">{user?.DisplayName}</p>
               </div>
+
               <div className="flex flex-col gap-1 items-start">
-                <h2 className="font-bold text-md text-black">Employee ID</h2>
-                <p className="text-[#9A9B9C] text-[10px]  max-w-[100px] break-all">{user?.PrimaryID}</p>
+                <h2 className="font-bold text-sm text-[#101828]">Badge ID</h2>
+                <p className="text-[#667085] text-sm">
+                  {user?.BadgeID ? user.BadgeID : "Not Available"}
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="rounded-[12px] shadow-md flex md:w-[82rem] flex-col m-auto mt-[24px] p-[2rem] gap-2">
-        <h2 className="font-bold">Verify your identity</h2>
-        <span>Take a government ID & selfie photo to get verified</span>
-        <button className="md:w-[80px] h-[40px] bg-[#272727] text-white float-right p-2 w-[6rem] ml-[70%] rounded md:ml-[90%]">
+      <div className="flex flex-row gap-[33.45px] bg-[#F5F6FA] mt-[21px] mx-6 p-5">
+        <div className="max-w-[153px]">
+          <h2 className="font-bold text-sm">Verify your identity</h2>
+          <span className="text-sm text-[#667085]">
+            Take a government ID & selfie photo to get verified
+          </span>
+        </div>
+        <button className="h-[35px] bg-[#101828] text-white text-sm p-2 w-[72px] rounded-lg">
           Verify
         </button>
       </div>

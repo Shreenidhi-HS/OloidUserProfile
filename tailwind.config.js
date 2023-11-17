@@ -2,12 +2,12 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-    "./node_modules/health-risk-assessment-v1/**/*.{html,js}"
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+    "./node_modules/health-risk-assessment-v1/**/*.{html,js}",
+  ],
   theme: {
     container: {
       center: true,
@@ -16,13 +16,13 @@ module.exports = {
         "2xl": "1400px",
       },
       fontSize: {
-        'xl': '20px',
-        '2xl': '24px',
-        '3xl': '26px',
+        xl: "20px",
+        "2xl": "24px",
+        "3xl": "26px",
       },
       spacing: {
-        '15px': '15px'
-      }
+        "15px": "15px",
+      },
     },
     extend: {
       colors: {
@@ -62,7 +62,7 @@ module.exports = {
         calendar: {
           DEFAULT: "#4a90e2",
           foreground: "#4a90e2",
-        }
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -86,4 +86,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};

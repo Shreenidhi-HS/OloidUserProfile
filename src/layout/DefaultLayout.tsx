@@ -3,19 +3,11 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Navigationbar from "../components/ui/navigationbar";
 import { navItem } from "../data/layout-data";
 import { LoginContext } from "../App";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "../components/ui/dropdown-menu";
 import { useQuery } from "react-query";
 import { getUserData } from "../services/login";
 import Navbar from "../components/Navbar";
 import SideBar from "../components/sideBar";
-
+import TopHeader from "../components/ui/topHeader";
 
 interface DefaultLayoutProps {
   children: ReactNode;
@@ -31,15 +23,16 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
 
   const isPathMatched = location.pathname.startsWith("/home");
 
-  const token = sessionStorage.getItem('token');
+  const token = sessionStorage.getItem("token");
 
-  const { data: userData, error, isLoading: isUserDataLoading, refetch: refetchUser } = useQuery(
-    'userData',
-    getUserData,
-    {
-      enabled: !!token,
-    }
-  );
+  const {
+    data: userData,
+    error,
+    isLoading: isUserDataLoading,
+    refetch: refetchUser,
+  } = useQuery("userData", getUserData, {
+    enabled: !!token,
+  });
 
   // useEffect(()=>{
   //   const newAuthContext = {
@@ -52,13 +45,13 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
   useEffect(() => {
     setPath(location.pathname);
     if (location.pathname == "/home/credential") {
-      setActivePage(2)
+      setActivePage(2);
     }
     if (location.pathname == "/home/profile") {
-      setActivePage(1)
+      setActivePage(1);
     }
     if (location.pathname == "/home/transaction") {
-      setActivePage(3)
+      setActivePage(3);
     }
   }, [location.pathname]);
 
@@ -102,31 +95,13 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
             <span className="sr-only">Loading...</span>
           </div>
         </div>
-        <div className="max-w-[414px] bg-[#272727] h-screen flex flex-col items-center pt-3">
+        <div className="bg-[#101828] h-screen flex flex-col items-center pt-3">
           <>
             {path === "/home/credential" && (
-              <div className="flex flex-row justify-between w-full px-8 translate-y-[50%]">
-                <div className="flex flex-col items-start text-white">
-                  <p className="text-md">Hello,</p>
-                  <h2 className="font-bold text-2xl text-white">
-                    {user?.DisplayName}
-                  </h2>
-                </div>
-                <div className="relative h-[80px]">
-                  <div className="absolute bottom-0 right-0 mr-[1%] -mb-[65%] w-[100px]  h-[100px] rounded-full bg-[#272727] overflow-hidden flex items-center justify-center translate-y-[30%]">
-                    <img
-                      src={user?.Faces[0] === undefined ? "../../public/assets/avatar.svg" : user?.Faces[0]?.SignedUrl}
-                      className="h-[80px] max-w-[80px] bordder-[2px] border-white rounded-full"
-                      alt=""
-                    />
-                  </div>
-                </div>
-              </div>
+              <TopHeader user={userData?.data?.user} />
             )}
             {path === "/home/profile" && (
-              <h2 className="text-2xl text-white font-bold mb-6 translate-y-[50%]">
-                Profile
-              </h2>
+              <TopHeader user={userData?.data?.user} />
             )}
             {path === "/home/transaction" && (
               <h2 className="text-2xl text-white font-bold mb-6 translate-y-[50%]">
@@ -135,8 +110,9 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
             )}
           </>
           <div
-            className={`bg-[white] ${path === "/home/credential" ? "" : "rounded-t-[30px]"
-              }  h-full w-full overflow-auto pb-[12rem] mt-10`}
+            className={`bg-[white] ${
+              path === "/home/credential" ? "" : "rounded-t-[30px]"
+            }  h-full w-full overflow-auto pb-[12rem] mt-10`}
           >
             {children}
           </div>
@@ -155,9 +131,15 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
         <div className="h-screen overflow-hidden">
           <Navbar user={user} />
           <div className="flex flex-row items-start mt-[80px] w-full h-full overflow-hidden">
-            <SideBar activePage={activePage} handleTabChange={handleTabChange} navItem={navItem} />
+            <SideBar
+              activePage={activePage}
+              handleTabChange={handleTabChange}
+              navItem={navItem}
+            />
             <main className="h-screen w-full flex-1 ">
-              <div className="h-full m-auto overflow-y-auto custom-scroll pb-[30px]">{children}</div>
+              <div className="h-full m-auto overflow-y-auto custom-scroll pb-[30px]">
+                {children}
+              </div>
             </main>
           </div>
         </div>

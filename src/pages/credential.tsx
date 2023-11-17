@@ -31,9 +31,17 @@ function Credential() {
             key={i}
             className="mt-[24px] w-[90vw] md:w-[62rem] rounded-[12px] m-auto shadow-md bg-[#e5ebf1]"
           >
-            <Accordion type="single" collapsible disabled={!item.hasCred} className="p-3">
+            <Accordion
+              type="single"
+              collapsible
+              disabled={!item.hasCred}
+              className="p-3"
+            >
               <AccordionItem value="item-1">
-                <AccordionTrigger className="flex items-center" hiddenArrow={!item.hasCred}>
+                <AccordionTrigger
+                  className="flex items-center"
+                  hiddenArrow={!item.hasCred}
+                >
                   <div className="flex flex-row gap-2">
                     <div>{item.name}</div>
                     {item.hasCred ? (
