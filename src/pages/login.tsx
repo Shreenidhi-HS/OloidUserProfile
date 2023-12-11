@@ -141,10 +141,10 @@ const Login: React.FC = () => {
   return (
     <div>
       <div className="flex flex-col items-center m-auto max-w-[26.875rem] shadow-lg">
-        <div className="bg-[#272727] w-full mt-0 flex flex-col items-start">
+        <div className="bg-[#272727] w-full mt-0 flex flex-col items-center">
           <img
-            src="/assets/logo.svg"
-            className="w-full h-[65.51px] text-center mt-[1.563rem]"
+            src="/assets/company/tyson.png"
+            className="max-w-[20.093rem] text-center mt-[1.563rem]"
             alt=""
           />
         </div>
