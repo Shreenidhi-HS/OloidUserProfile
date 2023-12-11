@@ -12,16 +12,17 @@ interface UserProfileProps {
 }
 
 const TopHeader: React.FC<UserProfileProps> = ({ user }) => {
+  const userHasFaces = user && user?.Faces && user?.Faces.length > 0;
   return (
     <>
       <div className="w-full h-6 bg-[#101828]"></div>
       <img src="/assets/profile-header.svg" alt="" />
-      <div className="absolute top-12 right-6">
+      <div className="absolute top-12 right-[1.4rem]">
         <img
           src={
-            user?.Faces[0] === undefined
-              ? "../../public/assets/avatar.svg"
-              : user?.Faces[0]?.SignedUrl
+            userHasFaces
+              ? user?.Faces[0]?.SignedUrl
+              : "../../public/assets/avatar.svg"
           }
           className="h-[6.688rem] rounded-full"
           alt=""
