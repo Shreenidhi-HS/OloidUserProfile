@@ -298,7 +298,7 @@ function ImageUploaderNew() {
                             ))} */}
           {!isUserDataLoading && (
             <>
-              {userData?.data.user.Faces.map((data, index) => (
+              {userData?.data?.user?.Faces?.map((data, index) => (
                 <div
                   className="h-32 relative rounded-[0.75rem] overflow-hidden w-fit"
                   key={index}

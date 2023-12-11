@@ -138,131 +138,138 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="bg-[#272727] mt-0 flex flex-col items-start md:bg-white">
-      <img
-        src="/assets/logo.svg"
-        className="w-full h-[65.51px] text-center mt-[1.563rem]"
-        alt=""
-      />
-      <div className="flex flex-col items-center w-full rounded-t-[30px] md:rounded-[12px] mt-[1.511rem] md:shadow-lg md:w-[32rem] md:h-fit m-auto md:mt-[5%] bg-white">
-        {!login ? (
-          <>
-            <div className="flex flex-col items-center gap-[1.563rem] mt-[3.125rem]">
-              <div className="w-[7.5rem]">
-                <Lottie
-                  animationData={loadingAnimation}
-                  lottieRef={lottieRef}
-                  loop
-                  autoPlay
-                />
+    <div>
+      <div className="flex flex-col items-center m-auto max-w-[26.875rem] shadow-lg">
+        <div className="bg-[#272727] w-full mt-0 flex flex-col items-start">
+          <img
+            src="/assets/logo.svg"
+            className="w-full h-[65.51px] text-center mt-[1.563rem]"
+            alt=""
+          />
+        </div>
+        <div className="bg-[#272727] w-full">
+          {!login ? (
+            <div className="rounded-t-[16px] bg-white">
+              <div className="flex flex-col items-center gap-[1.563rem] mt-[1.313rem]">
+                <div className="w-[7.5rem] mt-12">
+                  <Lottie
+                    animationData={loadingAnimation}
+                    lottieRef={lottieRef}
+                    loop
+                    autoPlay
+                  />
+                </div>
+                <p className="font-avenirHeavy text-[1.5rem]">OloID Portal</p>
               </div>
-              <p className="font-avenirHeavy text-[1.5rem]">OloID Portal</p>
-            </div>
 
-            <div className="mt-[3.063rem] w-[21.375rem]">
-              <form
-                className="flex flex-col m-auto"
-                noValidate
-                onSubmit={handleSubmit(onSubmit)}
-              >
-                <label
-                  htmlFor="email"
-                  className="text-[#1A2F47] text-base font-avenirHeavy"
+              <div className="flex justify-center mt-[3.063rem]">
+                <form
+                  className="flex flex-col w-[342px]"
+                  noValidate
+                  onSubmit={handleSubmit(onSubmit)}
                 >
-                  Email Address
-                </label>
-                <input
-                  placeholder="Type Email ID"
-                  className="p-4 bg-[#FFFFFF] border-[1px] border-[#272727] rounded-lg mt-[0.688rem] font-avenirMedium text-base"
-                  id="email"
-                  required
-                  {...register("email")}
-                  style={{ outline: "none" }}
-                />
-                {errors.email && (
-                  <p className="text-[#D0390B] font-avenirMedium mt-2 text-sm">
-                    {errors.email?.message}
-                  </p>
-                )}
+                  <div className="flex flex-col">
+                    <label
+                      htmlFor="email"
+                      className="text-[#1A2F47] text-base font-avenirHeavy"
+                    >
+                      Email Address
+                    </label>
+                    <input
+                      placeholder="Type Email ID"
+                      className="p-4 bg-[#FFFFFF] border-[1px] border-[#272727] rounded-lg mt-[0.688rem] font-avenirMedium text-base"
+                      id="email"
+                      required
+                      {...register("email")}
+                      style={{ outline: "none" }}
+                    />
+                    {errors.email && (
+                      <p className="text-[#D0390B] font-avenirMedium mt-2 text-sm">
+                        {errors.email?.message}
+                      </p>
+                    )}
+                  </div>
+                  <Button
+                    type="submit"
+                    className="mt-[1.875rem]"
+                    text="Get Verification Code"
+                    variant="primary"
+                    showLoad={loading}
+                  />
+
+                  <div className="flex mt-[24px] gap-2 items-center">
+                    <span className="h-[1px] w-[50%] bg-[#D0D5DD]"></span>
+                    <p className="font-avenirHeavy text-sm text-[#101828BF]">
+                      OR
+                    </p>
+                    <span className="h-[1px] w-[50%] bg-[#D0D5DD]"></span>
+                  </div>
+
+                  <Button
+                    className="mt-[1.875rem]"
+                    variant="secondary"
+                    icon="../../public/assets/login/powerIcon.svg"
+                    text="Login with SSO"
+                  />
+
+                  <Button
+                    className="mt-[1.875rem]"
+                    variant="secondary"
+                    icon="../../public/assets/login/powerIcon.svg"
+                    text="Supervisor Assisted Login"
+                  />
+                </form>
+              </div>
+              <footer className="bg-[#000000] mt-[3.938rem] px-6 py-4 w-full flex justify-between items-center">
+                <img src="/assets/footerLogo.svg" alt="" />
+
+                <img src="/assets/footerArrow.svg" alt="arrow" />
+              </footer>
+            </div>
+          ) : (
+            <div className="flex flex-col gap-10 m-11 text-center">
+              <div className="flex flex-col items-center gap-[1.125rem]">
+                <h2 className="font-avenirHeavy text-[1.625rem] text-[#101828]">
+                  Enter Verification Code
+                </h2>
+                <p className="font-avenirMedium text-base text-[#667085] max-w-[18.313rem]">
+                  Enter the One Time Verification Code we just sent to your
+                  email
+                </p>
+              </div>
+              <div className="flex flex-col items-center gap-[1.875rem] text-xl font-avenirMedium">
+                <div>
+                  <OtpInput
+                    value={otp}
+                    onChange={handleOtp}
+                    numInputs={6}
+                    inputStyle={{
+                      border: "1.5px solid #D0D5DD",
+                      borderRadius: "8px",
+                      width: "56px",
+                      height: "56px",
+                      outlineColor: "#0B6FD0",
+                    }}
+                    inputType="number"
+                    renderInput={(props, index) => (
+                      <React.Fragment key={index}>
+                        <input {...props} />
+                        {index < 5 && <span className="me-1"></span>}
+                      </React.Fragment>
+                    )}
+                  />
+                  {error && <p className="text-[red] mt-2 text-md">{error}</p>}
+                </div>
                 <Button
-                  type="submit"
-                  className="mt-[1.875rem]"
-                  text="Get Verification Code"
+                  text="Login"
                   variant="primary"
                   showLoad={loading}
+                  onClick={handleOtpLogin}
                 />
-
-                <div className="flex mt-[24px] gap-2 items-center">
-                  <span className="h-[1px] w-[50%] bg-[#D0D5DD]"></span>
-                  <p className="font-avenirHeavy text-sm text-[#101828BF]">
-                    OR
-                  </p>
-                  <span className="h-[1px] w-[50%] bg-[#D0D5DD]"></span>
-                </div>
-
-                <Button
-                  className="mt-[1.875rem]"
-                  variant="secondary"
-                  icon="../../public/assets/login/powerIcon.svg"
-                  text="Login with SSO"
-                />
-
-                <Button
-                  className="mt-[1.875rem]"
-                  variant="secondary"
-                  icon="../../public/assets/login/powerIcon.svg"
-                  text="Supervisor Assisted Login"
-                />
-              </form>
-            </div>
-            <footer className="bg-[#000000] mt-[3.938rem] px-6 py-4 w-full flex justify-between items-center">
-              <img src="/assets/footerLogo.svg" alt="" />
-
-              <img src="/assets/footerArrow.svg" alt="arrow" />
-            </footer>
-          </>
-        ) : (
-          <div className="flex flex-col gap-10 m-11 text-center">
-            <div className="flex flex-col items-center gap-[1.125rem]">
-              <h2 className="font-avenirHeavy text-[1.625rem] text-[#101828]">
-                Enter Verification Code
-              </h2>
-              <p className="font-avenirMedium text-base text-[#667085] max-w-[18.313rem]">
-                Enter the One Time Verification Code we just sent to your email
-              </p>
-            </div>
-            <div className="flex flex-col items-center gap-[1.875rem] text-xl font-avenirMedium">
-              <div>
-                <OtpInput
-                  value={otp}
-                  onChange={handleOtp}
-                  numInputs={6}
-                  inputStyle={{
-                    border: "1.5px solid #D0D5DD",
-                    borderRadius: "8px",
-                    width: "56px",
-                    height: "56px",
-                    outlineColor: "#0B6FD0",
-                  }}
-                  inputType="number"
-                  renderInput={(props, index) => (
-                    <React.Fragment key={index}>
-                      <input {...props} />
-                      {index < 5 && <span className="me-1"></span>}
-                    </React.Fragment>
-                  )}
-                />
-                {error && <p className="text-[red] mt-2 text-md">{error}</p>}
               </div>
-              <Button
-                text="Login"
-                variant="primary"
-                showLoad={loading}
-                onClick={handleOtpLogin}
-              />
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );

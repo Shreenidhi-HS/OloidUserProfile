@@ -11,6 +11,7 @@ function SideBar({ navItem, activePage, handleTabChange }) {
               : "text-[#272727]"
           } p-2 cursor-pointer`}
           onClick={() => handleTabChange(item.id)}
+          key={index}
         >
           <img
             src={item.image}

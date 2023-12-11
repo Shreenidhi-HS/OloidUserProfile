@@ -51,7 +51,7 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
 
   return (
     <>
-      <div className="md:hidden block overflow-hidden">
+      <div className="block overflow-hidden">
         <div>
           {path === "/credentials" && (
             <div className="flex flex-col gap-[3px] items-center">
@@ -81,7 +81,7 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
 
       {/* for desktop */}
 
-      <div className="hidden md:block">
+      {/* <div className="hidden md:block">
         <div className="h-screen overflow-hidden">
           <Navbar user={user} />
           <div className="flex flex-row items-start mt-[80px] w-full h-full overflow-hidden">
@@ -90,6 +90,7 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
               handleTabChange={handleTabChange}
               navItem={navItem}
             />
+
             <main className="h-screen w-full flex-1 ">
               <div className="h-full m-auto overflow-y-auto custom-scroll pb-[30px]">
                 {children}
@@ -97,7 +98,7 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
             </main>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
