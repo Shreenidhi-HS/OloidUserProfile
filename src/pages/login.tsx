@@ -71,7 +71,7 @@ const Login: React.FC = () => {
         };
         setAuthContext(newAuthContext);
         localStorage.setItem("authContext", JSON.stringify(newAuthContext));
-        navigate("home/profile");
+        navigate("/credentials");
       } else {
         if (loginAttempts >= 1) {
           const attemptsLeft = loginAttempts - 1;

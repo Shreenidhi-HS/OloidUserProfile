@@ -31,7 +31,7 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
 
   useEffect(() => {
     setPath(location.pathname);
-    if (location.pathname == "/credential") {
+    if (location.pathname == "/credentials") {
       setActivePage(2);
     }
     if (location.pathname == "/profile") {
@@ -44,7 +44,7 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
       navigate("/profile");
     }
     if (id === 2) {
-      navigate("/credential");
+      navigate("/credentials");
     }
     setActivePage(id);
   };
@@ -53,7 +53,7 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
     <>
       <div className="md:hidden block overflow-hidden">
         <div>
-          {path === "/credential" && (
+          {path === "/credentials" && (
             <div className="flex flex-col gap-[3px] items-center">
               <p className="mt-6 text-sm text-[#CECECE]">
                 Hello, {user?.DisplayName}
@@ -65,7 +65,7 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
         </div>
         <div
           className={`bg-[white] ${
-            path === "/credential" ? "rounded-t-[30px]" : ""
+            path === "/credentials" ? "rounded-t-[30px]" : ""
           }`}
         >
           {children}
