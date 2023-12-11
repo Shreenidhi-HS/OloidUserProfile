@@ -15,6 +15,7 @@ import { addFace, removeFace } from "../services/credential";
 import { useToast } from "./ui/use-toast";
 import { cn } from "../utils/utils";
 import { getUserData } from "../services/login";
+import DeleteButton from "./button/deleteButton";
 
 function ImageUploaderNew() {
   const { authContext } = useContext(LoginContext);
@@ -158,8 +159,6 @@ function ImageUploaderNew() {
     }
   };
 
-  console.log(userData?.data.user.Faces);
-
   return (
     <div>
       {openCamera ? (
@@ -255,35 +254,43 @@ function ImageUploaderNew() {
           )}
         </>
       ) : (
-        <div className="grid grid-cols-3 md:grid-cols-5 gap-2">
-          <div className="flex items-center justify-center w-full bg-white">
-            <label
-              className="cursor-pointer flex flex-col w-full h-32 border-2 border-dashed border-[#82B4E5] hover:border-[#475467] transition-all duration-300 rounded-[0.75rem]"
-              onClick={handleCaptureImage}
-            >
-              <div className="flex flex-col items-center justify-center pt-7">
-                <svg
-                  width="34"
-                  height="34"
-                  viewBox="0 0 61 61"
-                  fill="#475467"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M10.8555 30.2651H50.8555M30.8555 10.2651V50.2651"
-                    stroke="#475467"
-                    stroke-width="5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-                <p className="pt-1 text-sm tracking-wider text-[#475467] group-hover:text-gray-600">
-                  Add Face
-                </p>
-              </div>
-            </label>
+        <>
+          <div className="flex items-center justify-between my-[1.625rem]">
+            <p className="font-avenirHeavy text-xl">Assigned Faces</p>
+            <DeleteButton
+              isActive={selectedImages.length > 0}
+              onClick={toggledeleteModal}
+            />
           </div>
-          {/* {capturedImages.map((imageDataURL, index) => (
+          <div className="grid grid-cols-3 md:grid-cols-5 gap-2">
+            <div className="flex items-center justify-center w-full bg-white">
+              <label
+                className="cursor-pointer flex flex-col w-full h-32 border-2 border-dashed border-[#82B4E5] hover:border-[#475467] transition-all duration-300 rounded-[0.75rem]"
+                onClick={handleCaptureImage}
+              >
+                <div className="flex flex-col items-center justify-center pt-7">
+                  <svg
+                    width="34"
+                    height="34"
+                    viewBox="0 0 61 61"
+                    fill="#475467"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10.8555 30.2651H50.8555M30.8555 10.2651V50.2651"
+                      stroke="#475467"
+                      stroke-width="5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  <p className="pt-1 text-sm tracking-wider text-[#475467] group-hover:text-gray-600">
+                    Add Face
+                  </p>
+                </div>
+              </label>
+            </div>
+            {/* {capturedImages.map((imageDataURL, index) => (
                                 <div className='h-32 relative rounded-[0.75rem] overflow-hidden w-fit bg-[red]' key={index}>
                                     <input
                                         type="checkbox"
@@ -296,42 +303,36 @@ function ImageUploaderNew() {
                                     <img src={imageDataURL} alt={`Captured ${index + 1}`} className='h-full rounded-[0.75rem]' />
                                 </div>
                             ))} */}
-          {!isUserDataLoading && (
-            <>
-              {userData?.data?.user?.Faces?.map((data, index) => (
-                <div
-                  className="h-32 relative rounded-[0.75rem] overflow-hidden w-fit"
-                  key={index}
-                >
-                  <input
-                    type="checkbox"
-                    name="delete"
-                    id={`delete-${index}`}
-                    className="absolute top-0 left-0 ml-2 mt-2 rounded-full cursor-pointer"
-                    onChange={() =>
-                      toggleImageSelection(data.OnlineModelFaceID)
-                    }
-                    checked={selectedImages.includes(data.OnlineModelFaceID)}
-                  />
-                  <img
-                    src={data.SignedUrl}
-                    alt={`Captured ${index + 1}`}
-                    className="h-full rounded-[0.75rem]"
-                  />
-                </div>
-              ))}
-            </>
-          )}
-        </div>
+            {!isUserDataLoading && (
+              <>
+                {userData?.data?.user?.Faces?.map((data, index) => (
+                  <div
+                    className="h-32 relative rounded-[0.75rem] overflow-hidden w-fit"
+                    key={index}
+                  >
+                    <input
+                      type="checkbox"
+                      name="delete"
+                      id={`delete-${index}`}
+                      className="absolute top-0 left-0 ml-2 mt-2 rounded-full cursor-pointer"
+                      onChange={() =>
+                        toggleImageSelection(data.OnlineModelFaceID)
+                      }
+                      checked={selectedImages.includes(data.OnlineModelFaceID)}
+                    />
+                    <img
+                      src={data.SignedUrl}
+                      alt={`Captured ${index + 1}`}
+                      className="h-full rounded-[0.75rem]"
+                    />
+                  </div>
+                ))}
+              </>
+            )}
+          </div>
+        </>
       )}
-      {selectedImages.length > 0 && (
-        <button
-          className="px-4 py-2 border-[#DEDFE3] border-[2px] rounded-[0.6rem] mt-4 bg-[#ECEAEA] text-md text-[#AAAEB9] hover:text-black"
-          onClick={toggledeleteModal}
-        >
-          Delete
-        </button>
-      )}
+
       <Dialog open={handleDeleteModal} onOpenChange={toggledeleteModal}>
         <DialogContent className="max-w-[90vw] md:max-w-md">
           <DialogHeader>

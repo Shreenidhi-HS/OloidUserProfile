@@ -1,14 +1,18 @@
 import ImageUploaderNew from "./image-uploader-new";
 
 const Face = () => (
-  <div className="bg-white mt-3 rounded-t-[1rem]">
-    <div className="p-3 flex flex-row justify-between items-center rounded-[0.75rem]">
-      <span>Consent to use the image</span>
-      <span className="text-[green] cursor-pointer">Submit Consent</span>
+  <div className="bg-white mt-3 rounded-t-[1rem] px-6 py-5">
+    <div className="bg-[#FFF9EF] border border-[#D0880B] p-3 flex flex-row justify-between items-center rounded-[0.75rem]">
+      <div className="flex items-center gap-[0.625rem]">
+        <img src="/assets/warning-icon.svg" alt="" />
+        <p className="font-avenirMedium text-xs">Consent Required</p>
+      </div>
+      <p className="text-[#D0880B] font-avenirMedium text-xs cursor-pointer">
+        Submit Consent
+      </p>
     </div>
-    <div className="p-3 rounded-[0.75rem] mt-[12px] ">
-      <ImageUploaderNew />
-    </div>
+
+    <ImageUploaderNew />
   </div>
 );
 
