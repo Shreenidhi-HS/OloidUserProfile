@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import OtpInput from "react-otp-input";
@@ -7,8 +7,12 @@ import { EmailSchema } from "../schema/email-schema";
 import { useMutation } from "react-query";
 import { LoginApi, getUserData, otpLoginApi } from "../services/login";
 import { LoginContext } from "../App";
+import Lottie from "lottie-react";
+import loadingAnimation from "../assets/animation/idealLockScan/idealLockScan.json";
+import Button from "../components/ui/button";
 
-function Login() {
+const Login: React.FC = () => {
+  const lottieRef = useRef(null);
   const [login, setLogin] = useState(false);
   const [otp, setOtp] = useState("");
   const [loginAttempts, setLoginAttempts] = useState(3);
@@ -55,14 +59,14 @@ function Login() {
         // sessionStorage.setItem('token', idToken);
         const tokenData = {
           ...authContext,
-          token:idToken,
+          token: idToken,
         };
         setAuthContext(tokenData);
         localStorage.setItem("authContext", JSON.stringify(tokenData));
         const userDetail = await getUserData(idToken);
         const newAuthContext = {
           ...authContext,
-          token:idToken,
+          token: idToken,
           userDetail: userDetail.data.user,
         };
         setAuthContext(newAuthContext);
@@ -108,9 +112,7 @@ function Login() {
     formState: { errors },
   } = useForm({
     resolver: zodResolver(EmailSchema),
-    mode: "onBlur",
     reValidateMode: "onChange",
-    shouldFocusError: true,
   });
 
   const onSubmit = async (data: any, e) => {
@@ -136,107 +138,134 @@ function Login() {
   };
 
   return (
-    <div className="bg-[#272727] h-screen mt-0 flex flex-col items-start md:bg-white">
-      <h2 className="text-white text-[50px] font-bold m-auto md:hidden mt-10">OLOID</h2>
-    <div className="flex flex-col items-center w-full h-full p-[24px] rounded-t-[30px] md:rounded-[12px] mt-[10%] md:shadow-lg md:w-[32rem] md:h-fit m-auto md:mt-[5%] bg-white">
-      {!login ? (
-        <>
-          <h2 className="text-2xl font-bold text-[#1A2F47] mt-8 md:mt-0">
-            Login to your
-          </h2>
-          <h1 className="text-[28px] font-bold text-[#1A2F47] mt-2">
-            OLOID Dashboard
-          </h1>
-          <p className="text-[#7D7D7D] text-sm mt-2">
-            A link will be sent to your email
-          </p>
-          <div className="mt-[64px] w-full">
-            <form
-              className="flex flex-col m-auto"
-              onSubmit={handleSubmit(onSubmit)}
-            >
-              <label
-                htmlFor="email"
-                title="must be valid email"
-                className="text-[#1A2F47] text-md font-bold"
-              >
-                Email Address*
-              </label>
-              <input
-                placeholder="Type Email ID here..."
-                className="p-4 border-[1px] border-[#B0B0B0] rounded mt-2"
-                id="email"
-                {...register("email")}
-              />
-              {errors.email?.message && (
-                <p className="text-[red] mt-2 text-md">
-                  {errors.email?.message}
-                </p>
-              )}
-              <button
-                type="submit"
-                className="text-lg font-semibold mt-10 w-full bg-[black] p-[16px] rounded-[0.5rem] text-white"
-              >
-                {loading ? <img src="../../public/assets/loader.svg" className=" animate-spin m-auto" height={24} width={24} alt="loader" /> : "Next"} 
-              </button>
-              <div className="flex w-full mt-[24px] gap-2 items-center">
-                <span className="h-[1px] w-[50%] bg-[black]"></span>
-                <div>Or</div>
-                <span className="h-[1px] w-[50%] bg-[black]"></span>
+    <div className="bg-[#272727] mt-0 flex flex-col items-start md:bg-white">
+      <img
+        src="/assets/logo.svg"
+        className="w-full h-[65.51px] text-center mt-[1.563rem]"
+        alt=""
+      />
+      <div className="flex flex-col items-center w-full rounded-t-[30px] md:rounded-[12px] mt-[1.511rem] md:shadow-lg md:w-[32rem] md:h-fit m-auto md:mt-[5%] bg-white">
+        {!login ? (
+          <>
+            <div className="flex flex-col items-center gap-[1.563rem] mt-[3.125rem]">
+              <div className="w-[7.5rem]">
+                <Lottie
+                  animationData={loadingAnimation}
+                  lottieRef={lottieRef}
+                  loop
+                  autoPlay
+                />
               </div>
+              <p className="font-avenirHeavy text-[1.5rem]">OloID Portal</p>
+            </div>
 
-              <button
-                type="button"
-                className="text-[#1A2F47] flex flex-row items-center justify-center gap-4 text-lg font-semibold w-full bg-[white] border-[black] border-[1px] p-[16px] rounded-[0.5rem] text-black mt-[24px]"
-                onClick={handleOtpLogin}
+            <div className="mt-[3.063rem] w-[21.375rem]">
+              <form
+                className="flex flex-col m-auto"
+                noValidate
+                onSubmit={handleSubmit(onSubmit)}
               >
-                <img
-                  src="../../public/assets/login/powerIcon.svg"
-                  alt="powericon"
-                  className="h-6 w-6"
-                />{" "}
-                Login with SSO
-              </button>
-            </form>
-          </div>
-        </>
-      ) : (
-        <>
-          <h2 className="font-bold text-lg">Enter your OTP</h2>
-          <span>We have sent you an OTP to your Email</span>
-          <div className="mt-8">
-            <OtpInput
-              value={otp}
-              onChange={handleOtp}
-              numInputs={6}
-              inputStyle={{
-                border: "1px solid black",
-                borderRadius: "8px",
-                width: "54px",
-                height: "54px",
-                fontSize: "12px",
-                color: "#000",
-                fontWeight: "400",
-                caretColor: "blue",
-              }}
-              renderSeparator={<span>-</span>}
-              renderInput={(props) => <input {...props} />}
-            />
-            {error && <p className="text-[red] mt-2 text-md">{error}</p>}
-          </div>
-          <button
-            type="button"
-            className="mt-10 w-full bg-[black] p-[16px] rounded text-white"
-            onClick={handleOtpLogin}
-          >
-             {loading ? <img src="../../public/assets/loader.svg" className=" animate-spin m-auto" height={24} width={24} alt="loader" /> : "Login"} 
-          </button>
+                <label
+                  htmlFor="email"
+                  className="text-[#1A2F47] text-base font-avenirHeavy"
+                >
+                  Email Address
+                </label>
+                <input
+                  placeholder="Type Email ID"
+                  className="p-4 bg-[#FFFFFF] border-[1px] border-[#272727] rounded-lg mt-[0.688rem] font-avenirMedium text-base"
+                  id="email"
+                  required
+                  {...register("email")}
+                  style={{ outline: "none" }}
+                />
+                {errors.email && (
+                  <p className="text-[#D0390B] font-avenirMedium mt-2 text-sm">
+                    {errors.email?.message}
+                  </p>
+                )}
+                <Button
+                  type="submit"
+                  className="mt-[1.875rem]"
+                  text="Get Verification Code"
+                  variant="primary"
+                  showLoad={loading}
+                />
 
-        </>
-      )}
-    </div>
+                <div className="flex mt-[24px] gap-2 items-center">
+                  <span className="h-[1px] w-[50%] bg-[#D0D5DD]"></span>
+                  <p className="font-avenirHeavy text-sm text-[#101828BF]">
+                    OR
+                  </p>
+                  <span className="h-[1px] w-[50%] bg-[#D0D5DD]"></span>
+                </div>
+
+                <Button
+                  className="mt-[1.875rem]"
+                  variant="secondary"
+                  icon="../../public/assets/login/powerIcon.svg"
+                  text="Login with SSO"
+                />
+
+                <Button
+                  className="mt-[1.875rem]"
+                  variant="secondary"
+                  icon="../../public/assets/login/powerIcon.svg"
+                  text="Supervisor Assisted Login"
+                />
+              </form>
+            </div>
+            <footer className="bg-[#000000] mt-[3.938rem] px-6 py-4 w-full flex justify-between items-center">
+              <img src="/assets/footerLogo.svg" alt="" />
+
+              <img src="/assets/footerArrow.svg" alt="arrow" />
+            </footer>
+          </>
+        ) : (
+          <div className="flex flex-col gap-10 m-11 text-center">
+            <div className="flex flex-col items-center gap-[1.125rem]">
+              <h2 className="font-avenirHeavy text-[1.625rem] text-[#101828]">
+                Enter Verification Code
+              </h2>
+              <p className="font-avenirMedium text-base text-[#667085] max-w-[18.313rem]">
+                Enter the One Time Verification Code we just sent to your email
+              </p>
+            </div>
+            <div className="flex flex-col items-center gap-[1.875rem] text-xl font-avenirMedium">
+              <div>
+                <OtpInput
+                  value={otp}
+                  onChange={handleOtp}
+                  numInputs={6}
+                  inputStyle={{
+                    border: "1.5px solid #D0D5DD",
+                    borderRadius: "8px",
+                    width: "56px",
+                    height: "56px",
+                    outlineColor: "#0B6FD0",
+                  }}
+                  inputType="number"
+                  renderInput={(props, index) => (
+                    <React.Fragment key={index}>
+                      <input {...props} />
+                      {index < 5 && <span className="me-1"></span>}
+                    </React.Fragment>
+                  )}
+                />
+                {error && <p className="text-[red] mt-2 text-md">{error}</p>}
+              </div>
+              <Button
+                text="Login"
+                variant="primary"
+                showLoad={loading}
+                onClick={handleOtpLogin}
+              />
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
-}
+};
 
 export default Login;

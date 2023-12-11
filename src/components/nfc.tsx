@@ -1,13 +1,11 @@
-import React from 'react'
+import React from "react";
 
-function Nfc() {
+function Nfc({ data }) {
   return (
     <div>
-        <div>
-            NFC/ID - 248793152 rt56468546546 rf45
-        </div>
+      <div>{data}</div>
     </div>
-  )
+  );
 }
 
-export default Nfc
+export default Nfc;

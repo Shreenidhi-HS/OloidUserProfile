@@ -1,6 +1,55 @@
+@font-face {
+  font-family: "Avenir-Light";
+  src: url("./assets/Avenir/Avenir-Light.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avenir-Regular";
+  src: url("./assets/Avenir/Avenir-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Avenir-Medium";
+  src: url("./assets/Avenir/Avenir-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Avenir-Heavy";
+  src: url("./assets/Avenir/Avenir-Heavy.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Avenir-Black";
+  src: url("./assets/Avenir/Avenir-Black.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.font-avenir-medium {
+  font-family: "Avenir", sans-serif;
+  font-weight: 500;
+}
+
+.font-avenir-heavy {
+  font-family: "Avenir", sans-serif;
+  font-weight: 700;
+}
 
 .ui_block.ui-block-loader {
   display: none;
@@ -20,7 +69,6 @@
 .ui_block_image {
   width: 100px;
 }
-
 
 .custom-scroll::-webkit-scrollbar {
   height: 2px;

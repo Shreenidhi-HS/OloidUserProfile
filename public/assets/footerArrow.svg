@@ -1,0 +1,12 @@
+<svg id="icon-footer-arrow" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+  <g id="Bg" opacity="0">
+    <rect id="Rectangle_2138" data-name="Rectangle 2138" width="22" height="22" fill="#f2f2f2"/>
+  </g>
+  <g id="Group_36637" data-name="Group 36637" transform="translate(0.042 4.594)">
+    <g id="Icon" transform="translate(14.299 0.012)">
+      <path id="Path_8648" data-name="Path 8648" d="M14.2,16.994a1.15,1.15,0,0,1-.814-1.969l4.477-4.4-4.4-4.477A1.151,1.151,0,1,1,15.1,4.531l5.214,5.3a1.149,1.149,0,0,1-.011,1.628L15,16.675a1.148,1.148,0,0,1-.814.33Z" transform="translate(-13.037 -4.187)" fill="#fff"/>
+    </g>
+    <path id="Path_8649" data-name="Path 8649" d="M7.7,16.994a1.15,1.15,0,0,1-.814-1.969l4.477-4.4-4.4-4.477A1.151,1.151,0,1,1,8.6,4.531l5.214,5.3a1.149,1.149,0,0,1-.011,1.628L8.5,16.675a1.148,1.148,0,0,1-.814.33Z" transform="translate(0.612 -4.176)" fill="#fff" opacity="0.8"/>
+    <path id="Path_8650" data-name="Path 8650" d="M1.2,17a1.15,1.15,0,0,1-.814-1.969l4.477-4.4L.458,6.138A1.151,1.151,0,0,1,2.1,4.521l5.214,5.3A1.149,1.149,0,0,1,7.3,11.451L2.009,16.665A1.148,1.148,0,0,1,1.2,17Z" transform="translate(-0.038 -4.176)" fill="#fff" opacity="0.8"/>
+  </g>
+</svg>

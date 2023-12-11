@@ -22,9 +22,6 @@ function Credential() {
 
   return (
     <div className="p-2">
-      <h2 className="md:text-2xl md:p-4 text-lg p-2 font-bold">
-        Your Credentials
-      </h2>
       <div className="flex flex-col">
         {CredData(user).map((item, i) => (
           <div
@@ -81,7 +78,7 @@ function Credential() {
                   </Show>
 
                   <Show when={item.key === "NFC"} fallback={<></>}>
-                    <Nfc />
+                    <Nfc data={user?.IdSearch1} />
                   </Show>
 
                   <Show when={item.key === "Password"} fallback={<></>}>

@@ -13,15 +13,15 @@ module.exports = {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1400px",
+        "2xl": "87.5rem",
       },
       fontSize: {
-        xl: "20px",
-        "2xl": "24px",
-        "3xl": "26px",
+        xl: "1.25rem",
+        "2xl": "1.5rem",
+        "3xl": "1.625rem",
       },
       spacing: {
-        "15px": "15px",
+        "0.938rem": "0.938rem",
       },
     },
     extend: {
@@ -63,6 +63,13 @@ module.exports = {
           DEFAULT: "#4a90e2",
           foreground: "#4a90e2",
         },
+      },
+      fontFamily: {
+        avenirLight: ["Avenir-Light", "sans-serif"],
+        avenirRegular: ["Avenir-Regular", "sans-serif"],
+        avenirMedium: ["Avenir-Medium", "sans-serif"],
+        avenirHeavy: ["Avenir-Heavy", "sans-serif"],
+        avenirBlack: ["Avenir-Black", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
