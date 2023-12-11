@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="arrow" transform="translate(-369 -141)">
+    <circle id="Ellipse_257" data-name="Ellipse 257" cx="10" cy="10" r="10" transform="translate(369 141)" fill="#c8daf2"/>
+    <g id="Arrow-2" data-name="Arrow" transform="translate(375.066 145.714)">
+      <rect id="Bg" width="10.572" height="9.867" transform="translate(0 10.572) rotate(-90)" fill="none"/>
+      <g id="Arrow-3" data-name="Arrow" transform="translate(2.278 10.187) rotate(-90)">
+        <path id="Union_23" data-name="Union 23" d="M4.876,5.311a.519.519,0,0,1-.368-.147L.153.875a.507.507,0,0,1,0-.725.526.526,0,0,1,.736,0L4.876,4.077,8.863.15A.526.526,0,0,1,9.6.15a.507.507,0,0,1,0,.725L5.244,5.164a.519.519,0,0,1-.368.147Z" fill="#0b6fd0"/>
+      </g>
+    </g>
+  </g>
+</svg>

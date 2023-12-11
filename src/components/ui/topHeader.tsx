@@ -24,7 +24,7 @@ const TopHeader: React.FC<UserProfileProps> = ({ user }) => {
               ? user?.Faces[0]?.SignedUrl
               : "../../public/assets/avatar.svg"
           }
-          className="h-[6.688rem] rounded-full"
+          className="h-[6.688rem] w-[6.688rem] rounded-full"
           alt=""
         />
       </div>

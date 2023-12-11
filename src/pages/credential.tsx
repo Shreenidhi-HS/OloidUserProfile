@@ -1,20 +1,6 @@
-import React, { useContext, useEffect } from "react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "../components/ui/accordian";
-import Bluetooth from "../components/bluetooth";
-import Badge from "../components/badge";
-import Face from "../components/face";
-import Pin from "../components/pin";
-import Nfc from "../components/nfc";
-import QRcode from "../components/qr-code";
-import Password from "../components/password";
+import React, { useContext } from "react";
 import { LoginContext } from "../App";
 import { CredData } from "../data/credential-data";
-import Show from "../components/Show";
 
 function Credential() {
   const { authContext } = useContext(LoginContext);
@@ -26,67 +12,26 @@ function Credential() {
         {CredData(user).map((item, i) => (
           <div
             key={i}
-            className="mt-[24px] w-[90vw] md:w-[62rem] rounded-[12px] m-auto shadow-md bg-[#e5ebf1]"
+            className="flex items-center justify-between px-4 mt-[24px] w-[90vw] h-[4.5rem] md:w-[62rem] rounded-[0.5rem] m-auto bg-[#F5F6FA] border-[1px] border-[#EBECF1]"
           >
-            <Accordion
-              type="single"
-              collapsible
-              disabled={!item.hasCred}
-              className="p-3"
-            >
-              <AccordionItem value="item-1">
-                <AccordionTrigger
-                  className="flex items-center"
-                  hiddenArrow={!item.hasCred}
-                >
-                  <div className="flex flex-row gap-2">
-                    <div>{item.name}</div>
-                    {item.hasCred ? (
-                      <img
-                        src="../../public/assets/checkMark.svg"
-                        width={20}
-                        height={20}
-                      />
-                    ) : (
-                      <img
-                        src="../../public/assets/warning-icon.svg"
-                        width={20}
-                        height={20}
-                      />
-                    )}
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent>
-                  <Show when={item.key === "Bluetooth"} fallback={<></>}>
-                    <Bluetooth />
-                  </Show>
-
-                  <Show when={item.key === "BadgeID"} fallback={<></>}>
-                    <Badge />
-                  </Show>
-
-                  <Show when={item.key === "Faces"} fallback={<></>}>
-                    <Face />
-                  </Show>
-
-                  <Show when={item.key === "Pin"} fallback={<></>}>
-                    <Pin />
-                  </Show>
-
-                  <Show when={item.key === "QR Code"} fallback={<></>}>
-                    <QRcode authContext={authContext} />
-                  </Show>
-
-                  <Show when={item.key === "NFC"} fallback={<></>}>
-                    <Nfc data={user?.IdSearch1} />
-                  </Show>
-
-                  <Show when={item.key === "Password"} fallback={<></>}>
-                    <Password />
-                  </Show>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
+            <div className="flex flex-row items-center gap-2">
+              <img src={item.icon} alt="icon" />
+              <p className="font-avenirHeavy text-base">{item.name}</p>
+              {item.hasCred ? (
+                <img
+                  src="../../public/assets/checkMark.svg"
+                  width={20}
+                  height={20}
+                />
+              ) : (
+                <img
+                  src="../../public/assets/warning-icon.svg"
+                  width={20}
+                  height={20}
+                />
+              )}
+            </div>
+            <img src="/assets/arrow-circle.svg" alt="arrow" />
           </div>
         ))}
       </div>
