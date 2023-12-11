@@ -10,6 +10,7 @@ import { LoginContext } from "../App";
 import Lottie from "lottie-react";
 import loadingAnimation from "../assets/animation/idealLockScan/idealLockScan.json";
 import Button from "../components/ui/button";
+import { Input } from "../components/ui/input";
 
 const Login: React.FC = () => {
   const lottieRef = useRef(null);
@@ -169,15 +170,9 @@ const Login: React.FC = () => {
                   onSubmit={handleSubmit(onSubmit)}
                 >
                   <div className="flex flex-col">
-                    <label
-                      htmlFor="email"
-                      className="text-[#1A2F47] text-base font-avenirHeavy"
-                    >
-                      Email Address
-                    </label>
-                    <input
+                    <Input
+                      label="Email Address"
                       placeholder="Type Email ID"
-                      className="p-4 bg-[#FFFFFF] border-[1px] border-[#272727] rounded-lg mt-[0.688rem] font-avenirMedium text-base"
                       id="email"
                       required
                       {...register("email")}
