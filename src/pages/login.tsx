@@ -149,7 +149,7 @@ const Login: React.FC = () => {
         </div>
         <div className="bg-[#272727] w-full">
           {!login ? (
-            <div className="rounded-t-[16px] bg-white">
+            <div className="rounded-t-[1rem] bg-white">
               <div className="flex flex-col items-center gap-[1.563rem] mt-[1.313rem]">
                 <div className="w-[7.5rem] mt-12">
                   <Lottie
@@ -227,45 +227,49 @@ const Login: React.FC = () => {
               </footer>
             </div>
           ) : (
-            <div className="flex flex-col gap-10 m-11 text-center">
-              <div className="flex flex-col items-center gap-[1.125rem]">
-                <h2 className="font-avenirHeavy text-[1.625rem] text-[#101828]">
-                  Enter Verification Code
-                </h2>
-                <p className="font-avenirMedium text-base text-[#667085] max-w-[18.313rem]">
-                  Enter the One Time Verification Code we just sent to your
-                  email
-                </p>
-              </div>
-              <div className="flex flex-col items-center gap-[1.875rem] text-xl font-avenirMedium">
-                <div>
-                  <OtpInput
-                    value={otp}
-                    onChange={handleOtp}
-                    numInputs={6}
-                    inputStyle={{
-                      border: "1.5px solid #D0D5DD",
-                      borderRadius: "8px",
-                      width: "56px",
-                      height: "56px",
-                      outlineColor: "#0B6FD0",
-                    }}
-                    inputType="number"
-                    renderInput={(props, index) => (
-                      <React.Fragment key={index}>
-                        <input {...props} />
-                        {index < 5 && <span className="me-1"></span>}
-                      </React.Fragment>
-                    )}
-                  />
-                  {error && <p className="text-[red] mt-2 text-md">{error}</p>}
+            <div className="bg-white w-full flex flex-col justify-center rounded-t-[1rem] mt-[1.313rem]">
+              <div className="flex flex-col gap-10 m-11 text-center">
+                <div className="flex flex-col items-center gap-[1.125rem]">
+                  <h2 className="font-avenirHeavy text-[1.625rem] text-[#101828]">
+                    Enter Verification Code
+                  </h2>
+                  <p className="font-avenirMedium text-base text-[#667085] max-w-[18.313rem]">
+                    Enter the One Time Verification Code we just sent to your
+                    email
+                  </p>
                 </div>
-                <Button
-                  text="Login"
-                  variant="primary"
-                  showLoad={loading}
-                  onClick={handleOtpLogin}
-                />
+                <div className="flex flex-col items-center gap-[1.875rem] text-xl font-avenirMedium">
+                  <div>
+                    <OtpInput
+                      value={otp}
+                      onChange={handleOtp}
+                      numInputs={6}
+                      inputStyle={{
+                        border: "1.5px solid #D0D5DD",
+                        borderRadius: "8px",
+                        width: "56px",
+                        height: "56px",
+                        outlineColor: "#0B6FD0",
+                      }}
+                      inputType="number"
+                      renderInput={(props, index) => (
+                        <React.Fragment key={index}>
+                          <input {...props} />
+                          {index < 5 && <span className="me-1"></span>}
+                        </React.Fragment>
+                      )}
+                    />
+                    {error && (
+                      <p className="text-[red] mt-2 text-md">{error}</p>
+                    )}
+                  </div>
+                  <Button
+                    text="Login"
+                    variant="primary"
+                    showLoad={loading}
+                    onClick={handleOtpLogin}
+                  />
+                </div>
               </div>
             </div>
           )}
