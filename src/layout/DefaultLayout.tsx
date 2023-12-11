@@ -51,7 +51,8 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
 
   return (
     <>
-      <div className="block overflow-hidden">
+      {path === "/profile" && <TopHeader user={user} />}
+      <div className="block overflow-hidden bg-[#101828]">
         <div>
           {path === "/credentials" && (
             <div className="flex flex-col gap-[3px] items-center">
@@ -61,13 +62,8 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
               <p className="text-2xl text-white font-bold">Your Credentials</p>
             </div>
           )}
-          {path === "/profile" && <TopHeader user={user} />}
         </div>
-        <div
-          className={`bg-[white] ${
-            path === "/credentials" ? "rounded-t-[30px]" : ""
-          }`}
-        >
+        <div>
           {children}
 
           {!loginPath && (

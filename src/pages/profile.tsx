@@ -28,16 +28,16 @@ function Profile() {
 
   if (isUserDataLoading) {
     return (
-      <div className="w-full h-full flex items-center justify-center">
+      <div className="w-full h-screen m-auto flex items-center justify-center bg-white">
         <div className="animate-spin w-[20px] h-[20px] rounded-full border-t-black border-[#ffffff] border-[2px] m-auto"></div>
       </div>
     );
   }
 
   return (
-    <div className="h-screen">
+    <div className="bg-white">
       <div className="flex flex-col md:flex-row items-start">
-        <div className="bg-[#F5F6FA] border-[0.8px] border-[#EBECF1] py-3 px-6 mx-6 grid grid-cols-2 gap-[3rem] rounded-b-lg w-fit">
+        <div className="mt-[8.75rem] bg-[#F5F6FA] border-[0.8px] border-[#EBECF1] pt-9 pb-5 px-6 mx-6 grid grid-cols-2 gap-[3rem] rounded-b-lg w-fit">
           <div className="flex flex-col gap-y-5">
             <div className="flex flex-col gap-[5px] items-start">
               <h2 className="font-bold text-sm text-[#101828]">Full name</h2>

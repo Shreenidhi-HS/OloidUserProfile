@@ -21,7 +21,7 @@ function Credential() {
   const user = authContext.userDetail;
 
   return (
-    <div className="p-2">
+    <div className="p-2 bg-white mt-[1.313rem] rounded-t-[1rem]">
       <div className="flex flex-col">
         {CredData(user).map((item, i) => (
           <div
