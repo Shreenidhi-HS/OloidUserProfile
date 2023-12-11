@@ -8,6 +8,7 @@ import Profile from "./pages/profile";
 import Credential from "./pages/credential";
 import "./services/axiosInterceptor";
 import { Toaster } from "./components/ui/toaster";
+import Face from "./components/face";
 
 const queryClient = new QueryClient();
 export const LoginContext = createContext();
@@ -27,6 +28,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/credentials" element={<Credential />} />
+            <Route path="/credentials/faces" element={<Face />} />
           </Routes>
           <Toaster />
         </DefaultLayout>

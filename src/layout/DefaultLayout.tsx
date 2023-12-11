@@ -54,7 +54,7 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
       {path === "/profile" && <TopHeader user={user} />}
       <div className="block overflow-hidden bg-[#101828]">
         <div>
-          {path === "/credentials" && (
+          {path.startsWith("/credentials") && (
             <div className="flex flex-col gap-[3px] items-center">
               <p className="mt-6 text-sm text-[#CECECE]">
                 Hello, {user?.DisplayName}
