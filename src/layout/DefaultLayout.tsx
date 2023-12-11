@@ -56,6 +56,14 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
         <div>
           {path.startsWith("/credentials") && (
             <div className="flex flex-col gap-[3px] items-center">
+              {!path.endsWith("/credentials") && (
+                <img
+                  src="/assets/back-button.svg"
+                  alt=""
+                  className="absolute top-[1.688rem] left-[0.938rem]"
+                  onClick={() => navigate("/credentials")}
+                />
+              )}
               <p className="mt-6 text-sm text-[#CECECE]">
                 Hello, {user?.DisplayName}
               </p>

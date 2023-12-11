@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <g id="Back_button" data-name="Back button" transform="translate(-20.805 -28.805)">
+    <rect id="Bg" width="48" height="48" transform="translate(68.805 28.805) rotate(90)" fill="#fff" opacity="0"/>
+    <g id="Arrow" transform="translate(1 -1)">
+      <rect id="Bg-2" data-name="Bg" width="18" height="18" transform="translate(52.805 44.805) rotate(90)" fill="none"/>
+      <g id="Arrow-2" data-name="Arrow" transform="translate(49.152 46.457) rotate(90)">
+        <path id="Union_153" data-name="Union 153" d="M3030.446,12285.179l-6.481-6.871a1.594,1.594,0,0,1,0-2.184,1.488,1.488,0,0,1,2.175,0l5.4,5.718,5.394-5.718a1.488,1.488,0,0,1,2.175,0,1.612,1.612,0,0,1,0,2.184l-6.481,6.871a1.5,1.5,0,0,1-2.178,0Z" transform="translate(-3024.185 -12275.301)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>
