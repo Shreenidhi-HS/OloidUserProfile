@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <g id="Menu_button" data-name="Menu button" transform="translate(-10 -15)">
+    <rect id="Bg" width="48" height="48" transform="translate(58 15) rotate(90)" fill="#fff" opacity="0"/>
+    <g id="Menu_icon" data-name="Menu icon">
+      <rect id="Rectangle_2318" data-name="Rectangle 2318" width="21" height="3" rx="1.5" transform="translate(24 31)" fill="#fff"/>
+      <rect id="Rectangle_2319" data-name="Rectangle 2319" width="21" height="3" rx="1.5" transform="translate(24 37.5)" fill="#fff"/>
+      <rect id="Rectangle_2320" data-name="Rectangle 2320" width="21" height="3" rx="1.5" transform="translate(24 44)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

@@ -14,16 +14,16 @@ interface UserProfileProps {
 const TopHeader: React.FC<UserProfileProps> = ({ user }) => {
   return (
     <>
-      <div className="w-full h-5 bg-[#101828]"></div>
+      <div className="w-full h-6 bg-[#101828]"></div>
       <img src="/assets/profile-header.svg" alt="" />
-      <div className="absolute top-10 right-6">
+      <div className="absolute top-12 right-6">
         <img
           src={
             user?.Faces[0] === undefined
               ? "../../public/assets/avatar.svg"
               : user?.Faces[0]?.SignedUrl
           }
-          className="h-[107px] max-w-[107px] rounded-full"
+          className="h-[6.688rem] rounded-full"
           alt=""
         />
       </div>
