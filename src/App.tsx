@@ -1,14 +1,12 @@
-import { createContext, useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { createContext, useState } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { QueryClient, QueryClientProvider } from "react-query";
 import DefaultLayout from "./layout/DefaultLayout";
-import Homepage from "./pages/home";
 import Login from "./pages/login";
 import Profile from "./pages/profile";
-import Transaction from "./pages/transaction";
 import Credential from "./pages/credential";
-import "./services/axiosInterceptor"
+import "./services/axiosInterceptor";
 import { Toaster } from "./components/ui/toaster";
 
 const queryClient = new QueryClient();
@@ -19,19 +17,19 @@ function App() {
     localStorage.getItem("authContext") || null
   );
   const [authContext, setAuthContext] = useState(localStorageData || null);
-  
+
   return (
     <LoginContext.Provider value={{ authContext, setAuthContext }}>
       <QueryClientProvider client={queryClient}>
+        <DefaultLayout>
           <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/home" element={<Homepage />}>
-              <Route path="profile" element={<Profile />} />
-              <Route path="credential" element={<Credential />} />
-              <Route path="transaction" element={<Transaction />} />
-            </Route>
+            <Route path="/" element={<Navigate to="/login" replace />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/credential" element={<Credential />} />
           </Routes>
           <Toaster />
+        </DefaultLayout>
       </QueryClientProvider>
     </LoginContext.Provider>
   );

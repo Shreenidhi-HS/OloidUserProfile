@@ -39,7 +39,7 @@ function Navbar({ user }) {
         <DropdownMenuContent className="mr-[20px] mt-[10px]">
           <DropdownMenuLabel>{user?.DisplayName}</DropdownMenuLabel>
           <DropdownMenuSeparator />
-          <DropdownMenuItem onClick={() => navigate("/home/profile")}>
+          <DropdownMenuItem onClick={() => navigate("/profile")}>
             Profile
           </DropdownMenuItem>
           <DropdownMenuSeparator />

@@ -19,7 +19,7 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
   const { authContext, setAuthContext } = useContext(LoginContext);
   const user = authContext?.userDetail;
 
-  const isPathMatched = location.pathname.startsWith("/home");
+  const loginPath = location.pathname.startsWith("/login");
 
   // useEffect(()=>{
   //   const newAuthContext = {
@@ -31,26 +31,20 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
 
   useEffect(() => {
     setPath(location.pathname);
-    if (location.pathname == "/home/credential") {
+    if (location.pathname == "/credential") {
       setActivePage(2);
     }
-    if (location.pathname == "/home/profile") {
+    if (location.pathname == "/profile") {
       setActivePage(1);
-    }
-    if (location.pathname == "/home/transaction") {
-      setActivePage(3);
     }
   }, [location.pathname]);
 
   const handleTabChange = (id: number) => {
     if (id === 1) {
-      navigate("/home/profile");
+      navigate("/profile");
     }
     if (id === 2) {
-      navigate("/home/credential");
-    }
-    if (id === 3) {
-      navigate("/home/transaction");
+      navigate("/credential");
     }
     setActivePage(id);
   };
@@ -59,7 +53,7 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
     <>
       <div className="md:hidden block overflow-hidden">
         <div>
-          {path === "/home/credential" && (
+          {path === "/credential" && (
             <div className="flex flex-col gap-[3px] items-center">
               <p className="mt-6 text-sm text-[#CECECE]">
                 Hello, {user?.DisplayName}
@@ -67,25 +61,16 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
               <p className="text-2xl text-white font-bold">Your Credentials</p>
             </div>
           )}
-          {path === "/home/profile" && <TopHeader user={user} />}
-          {path === "/home/transaction" && (
-            <div className="flex flex-col gap-[3px] items-center">
-              <p className="mt-6 text-sm text-[#CECECE]">
-                Hello, {user?.DisplayName}
-              </p>
-              <p className="text-2xl text-white font-bold">Your Transactions</p>
-            </div>
-          )}
+          {path === "/profile" && <TopHeader user={user} />}
         </div>
         <div
           className={`bg-[white] ${
-            (path === "/home/credential" ? "rounded-t-[30px]" : "") ||
-            (path === "/home/transaction" ? "rounded-t-[30px]" : "")
+            path === "/credential" ? "rounded-t-[30px]" : ""
           }`}
         >
           {children}
 
-          {isPathMatched && (
+          {!loginPath && (
             <Navigationbar
               activePage={activePage}
               handleTabChange={handleTabChange}
