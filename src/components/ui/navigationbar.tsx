@@ -5,7 +5,7 @@ import {
   MenubarMenu,
   MenubarSeparator,
   MenubarTrigger,
-} from "@radix-ui/react-menubar";
+} from "./menubar";
 
 interface Navbarprops {
   handleTabChange: (id: number) => void;
@@ -19,7 +19,7 @@ const Navigationbar = ({ handleTabChange }: Navbarprops) => {
           <MenubarTrigger>
             <img src="/assets/hamburger.svg" alt="menu" />
           </MenubarTrigger>
-          <MenubarContent>
+          <MenubarContent className="bg-white">
             <MenubarItem onClick={() => handleTabChange(2)}>
               Credentials
             </MenubarItem>

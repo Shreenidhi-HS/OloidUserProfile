@@ -28,7 +28,7 @@ export const CredData = (user: User) => {
       key: "Faces",
       name: "Faces",
       hasCred: user.Faces?.length === 0 ? false : true,
-      icon: "/assets/credentials/pin.svg",
+      icon: "/assets/credentials/face.svg",
       url: "/credentials/faces",
     },
     {
@@ -42,7 +42,7 @@ export const CredData = (user: User) => {
       key: "QR Code",
       name: "QR Code",
       hasCred: user.QRCode === undefined ? false : true,
-      icon: "/assets/credentials/pin.svg",
+      icon: "/assets/credentials/qr-code-circle.svg",
       url: "/credentials/qrcode",
     },
     {

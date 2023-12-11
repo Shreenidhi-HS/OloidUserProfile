@@ -27,14 +27,14 @@ function Credential() {
               {item.hasCred ? (
                 <img
                   src="../../public/assets/checkMark.svg"
-                  width={20}
-                  height={20}
+                  width={14}
+                  height={14}
                 />
               ) : (
                 <img
                   src="../../public/assets/warning-icon.svg"
-                  width={20}
-                  height={20}
+                  width={14}
+                  height={14}
                 />
               )}
             </div>

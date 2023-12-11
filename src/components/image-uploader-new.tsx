@@ -206,7 +206,7 @@ function ImageUploaderNew() {
                   onClick={handleCameraClose}
                 >
                   <img
-                    src="../../public/assets/credentials/back-btm.svg"
+                    src="../../public/assets/credentials/back-btn.svg"
                     height={30}
                     width={30}
                   />
