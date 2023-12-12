@@ -9,6 +9,7 @@ import Credential from "./pages/credential";
 import "./services/axiosInterceptor";
 import { Toaster } from "./components/ui/toaster";
 import { Badge, Bluetooth, Face, Pin, QRcode } from "./components";
+import ConsentForm from "./components/consent";
 
 const queryClient = new QueryClient();
 export const LoginContext = createContext();
@@ -29,6 +30,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/credentials" element={<Credential />} />
             <Route path="/credentials/faces" element={<Face />} />
+            <Route path="/credentials/faces/consent" element={<ConsentForm />} />
             <Route path="/credentials/badge" element={<Badge />} />
             <Route path="/credentials/bluetooth" element={<Bluetooth />} />
             <Route path="/credentials/pin" element={<Pin />} />

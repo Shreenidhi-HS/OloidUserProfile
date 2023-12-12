@@ -29,6 +29,7 @@ module.exports = {
         ObsidianDarkBlue: "#101828",
         ChawkWhite: "#F9FAFB",
         LightGrey: "#ECEAEA",
+        DarkGrey: "#7D7D7D",
         CharcolDarkBlue: "#475467",
         BluishGrey: "#667085",
         GlassBluishGrey: "#F5F6FA",
