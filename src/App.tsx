@@ -8,7 +8,7 @@ import Profile from "./pages/profile";
 import Credential from "./pages/credential";
 import "./services/axiosInterceptor";
 import { Toaster } from "./components/ui/toaster";
-import Face from "./components/face";
+import { Badge, Bluetooth, Face, Pin, QRcode } from "./components";
 
 const queryClient = new QueryClient();
 export const LoginContext = createContext();
@@ -29,6 +29,10 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/credentials" element={<Credential />} />
             <Route path="/credentials/faces" element={<Face />} />
+            <Route path="/credentials/badge" element={<Badge />} />
+            <Route path="/credentials/bluetooth" element={<Bluetooth />} />
+            <Route path="/credentials/pin" element={<Pin />} />
+            <Route path="/credentials/qrcode" element={<QRcode />} />
           </Routes>
           <Toaster />
         </DefaultLayout>

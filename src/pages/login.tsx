@@ -222,7 +222,7 @@ const Login: React.FC = () => {
               </footer>
             </div>
           ) : (
-            <div className="bg-white w-full flex flex-col justify-center rounded-t-[1rem] mt-[1.313rem]">
+            <div className="bg-white w-full h-screen flex flex-col items-center rounded-t-[1rem] mt-[1.313rem]">
               <div className="flex flex-col gap-10 m-11 text-center">
                 <div className="flex flex-col items-center gap-[1.125rem]">
                   <h2 className="font-avenirHeavy text-[1.625rem] text-[#101828]">
@@ -242,8 +242,8 @@ const Login: React.FC = () => {
                       inputStyle={{
                         border: "1.5px solid #D0D5DD",
                         borderRadius: "8px",
-                        width: "56px",
-                        height: "56px",
+                        width: "48px",
+                        height: "48px",
                         outlineColor: "#0B6FD0",
                       }}
                       inputType="number"
