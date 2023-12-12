@@ -1,11 +1,5 @@
-import React from 'react'
+const Pin = () => {
+  return <div className="bg-white mt-3 rounded-t-[1rem] px-6 py-5"></div>;
+};
 
-function Pin() {
-  return (
-    <div>
-        <div className=''>PIN : ****</div>
-    </div>
-  )
-}
-
-export default Pin
+export default Pin;

@@ -49,6 +49,25 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
     setActivePage(id);
   };
 
+  const headerTitle = () => {
+    if (path.endsWith("/pin")) {
+      return "Pin Credential";
+    } else if (path.endsWith("/badge")) {
+      return "Badge Credential";
+    } else if (path.endsWith("/faces")) {
+      return "Face Credential";
+    } else if (path.endsWith("/password")) {
+      return "Password Credential";
+    } else if (path.endsWith("/qrcode")) {
+      return "Assigned QR code";
+    } else if (path.endsWith("/bluetooth")) {
+      return "Bluetooth Credential";
+    } else if (path.endsWith("/nfc")) {
+      return "NFC Credential";
+    }
+    return "Your Credentials";
+  };
+
   return (
     <>
       {path === "/profile" && <TopHeader user={user} />}
@@ -67,7 +86,7 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
               <p className="mt-6 text-sm text-[#CECECE]">
                 Hello, {user?.DisplayName}
               </p>
-              <p className="text-2xl text-white font-bold">Your Credentials</p>
+              <p className="text-2xl text-white font-bold">{headerTitle()}</p>
             </div>
           )}
         </div>
