@@ -160,7 +160,7 @@ const Login: React.FC = () => {
                     autoPlay
                   />
                 </div>
-                <p className="font-avenirHeavy text-[1.5rem]">OloID Portal</p>
+                <p className="font-avenirHeavy text-2xl">OloID Portal</p>
               </div>
 
               <div className="flex justify-center mt-[3.063rem]">
