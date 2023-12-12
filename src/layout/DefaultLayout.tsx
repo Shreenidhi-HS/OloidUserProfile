@@ -56,6 +56,8 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
       return "Badge Credential";
     } else if (path.endsWith("/faces")) {
       return "Face Credential";
+    } else if (path.endsWith("/consent")) {
+      return "Please provide consent";
     } else if (path.endsWith("/password")) {
       return "Password Credential";
     } else if (path.endsWith("/qrcode")) {
@@ -80,13 +82,15 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
                   src="/assets/back-button.svg"
                   alt=""
                   className="absolute top-[1.688rem] left-[0.938rem]"
-                  onClick={() => navigate("/credentials")}
+                  onClick={() => navigate(-1)}
                 />
               )}
-              <p className="mt-6 text-sm text-[#CECECE]">
+              <p className="font-avenirHeavy mt-6 text-sm text-[#CECECE]">
                 Hello, {user?.DisplayName}
               </p>
-              <p className="text-2xl text-white font-bold">{headerTitle()}</p>
+              <p className="font-avenirMedium text-2xl text-white">
+                {headerTitle()}
+              </p>
             </div>
           )}
         </div>
