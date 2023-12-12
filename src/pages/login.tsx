@@ -193,11 +193,11 @@ const Login: React.FC = () => {
                   />
 
                   <div className="flex mt-[24px] gap-2 items-center">
-                    <span className="h-[1px] w-[50%] bg-[#D0D5DD]"></span>
-                    <p className="font-avenirHeavy text-sm text-[#101828BF]">
+                    <span className="h-[1px] w-[50%] bg-MediumBluishGrey"></span>
+                    <p className="font-avenirHeavy text-sm text-ObsidianDarkBlue">
                       OR
                     </p>
-                    <span className="h-[1px] w-[50%] bg-[#D0D5DD]"></span>
+                    <span className="h-[1px] w-[50%] bg-MediumBluishGrey"></span>
                   </div>
 
                   <Button
@@ -225,10 +225,10 @@ const Login: React.FC = () => {
             <div className="bg-white w-full h-screen flex flex-col items-center rounded-t-[1rem] mt-[1.313rem]">
               <div className="flex flex-col gap-10 m-11 text-center">
                 <div className="flex flex-col items-center gap-[1.125rem]">
-                  <h2 className="font-avenirHeavy text-[1.625rem] text-[#101828]">
+                  <h2 className="font-avenirHeavy text-[1.625rem] text-ObsidianDarkBlue">
                     Enter Verification Code
                   </h2>
-                  <p className="font-avenirMedium text-base text-[#667085] max-w-[18.313rem]">
+                  <p className="font-avenirMedium text-base text-BluishGrey max-w-[18.313rem]">
                     Enter the One Time Verification Code we just sent to your
                     email
                   </p>

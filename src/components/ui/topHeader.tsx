@@ -15,7 +15,7 @@ const TopHeader: React.FC<UserProfileProps> = ({ user }) => {
   const userHasFaces = user && user?.Faces && user?.Faces.length > 0;
   return (
     <div className="absolute">
-      <div className="w-full h-6 bg-[#101828]"></div>
+      <div className="w-full h-6 bg-ObsidianDarkBlue"></div>
       <img src="/assets/profile-header.svg" alt="" />
       <div className="absolute top-12 right-[1.4rem]">
         <img

@@ -37,27 +37,35 @@ function Profile() {
   return (
     <div className="bg-white">
       <div className="flex flex-col md:flex-row items-start">
-        <div className="mt-[8.75rem] bg-[#F5F6FA] border-[0.8px] border-[#EBECF1] pt-9 pb-5 px-6 mx-6 grid grid-cols-2 gap-[3rem] rounded-b-lg w-fit">
+        <div className="mt-[8.75rem] bg-GlassBluishGrey border-[0.8px] border-LightBluishGrey pt-9 pb-5 px-6 mx-6 grid grid-cols-2 gap-[3rem] rounded-b-lg w-fit">
           <div className="flex flex-col gap-y-5">
             <div className="flex flex-col gap-[5px] items-start">
-              <h2 className="font-bold text-sm text-[#101828]">Full name</h2>
-              <p className="text-[#667085] text-sm">{user?.FullName}</p>
+              <h2 className="font-bold text-sm text-ObsidianDarkBlue">
+                Full name
+              </h2>
+              <p className="text-BluishGrey text-sm">{user?.FullName}</p>
             </div>
             <div className="flex flex-col gap-[5px] items-start">
-              <h2 className="font-bold text-sm text-[#101828]">Employee ID</h2>
-              <p className="text-[#667085] text-sm max-w-[100px] whitespace-nowrap overflow-hidden text-ellipsis">
+              <h2 className="font-bold text-sm text-ObsidianDarkBlue">
+                Employee ID
+              </h2>
+              <p className="text-BluishGrey text-sm max-w-[100px] whitespace-nowrap overflow-hidden text-ellipsis">
                 {user?.PrimaryID}
               </p>
             </div>
             <div className="flex flex-col gap-[5px] items-start">
-              <h2 className="font-bold text-sm text-[#101828]">Email ID</h2>
-              <p className="text-[#667085] text-sm">{user?.Email}</p>
+              <h2 className="font-bold text-sm text-ObsidianDarkBlue">
+                Email ID
+              </h2>
+              <p className="text-BluishGrey text-sm">{user?.Email}</p>
             </div>
             <div className="flex flex-col items-start">
               <div className="flex items-center">
-                <h2 className="font-bold text-sm text-[#101828]">Phone</h2>
+                <h2 className="font-bold text-sm text-ObsidianDarkBlue">
+                  Phone
+                </h2>
               </div>
-              <p className="text-[#667085] text-sm">
+              <p className="text-BluishGrey text-sm">
                 {user?.UserMetadata?.person?.phone
                   ? user?.UserMetadata?.person?.phone
                   : "Not Available"}
@@ -67,16 +75,18 @@ function Profile() {
           <div className="flex flex-col gap-y-5">
             <div className="flex flex-col items-start">
               <div className="flex items-center">
-                <h2 className="font-bold text-sm text-[#101828]">
+                <h2 className="font-bold text-sm text-ObsidianDarkBlue">
                   Display name
                 </h2>
               </div>
-              <p className="text-[#667085] text-sm">{user?.DisplayName}</p>
+              <p className="text-BluishGrey text-sm">{user?.DisplayName}</p>
             </div>
 
             <div className="flex flex-col gap-[5px] items-start">
-              <h2 className="font-bold text-sm text-[#101828]">Badge ID</h2>
-              <p className="text-[#667085] text-sm">
+              <h2 className="font-bold text-sm text-ObsidianDarkBlue">
+                Badge ID
+              </h2>
+              <p className="text-BluishGrey text-sm">
                 {user?.BadgeID ? user.BadgeID : "Not Available"}
               </p>
             </div>
@@ -84,7 +94,7 @@ function Profile() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-5 items-center bg-[#F5F6FA] mt-[21px] mx-6 p-5">
+      <div className="flex flex-col gap-5 items-center bg-GlassBluishGrey mt-[21px] mx-6 p-5">
         <div className="flex items-center gap-[10.72px]">
           <img
             src="/illustration.png"
@@ -93,7 +103,7 @@ function Profile() {
           />
           <div>
             <p className="font-bold text-sm">Verify your identity</p>
-            <span className="text-sm text-[#667085]">
+            <span className="text-sm text-BluishGrey">
               Take a government ID & selfie photo to get verified
             </span>
           </div>

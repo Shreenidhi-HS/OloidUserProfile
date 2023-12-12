@@ -18,7 +18,7 @@ function Credential() {
         <div
           key={i}
           onClick={() => navigateToUrl(item.url)}
-          className="flex items-center justify-between px-4 w-full h-[4.5rem] md:w-[62rem] rounded-[0.5rem] m-auto bg-[#F5F6FA] border-[1px] border-[#EBECF1] cursor-pointer"
+          className="flex items-center justify-between px-4 w-full h-[4.5rem] md:w-[62rem] rounded-[0.5rem] m-auto bg-GlassBluishGrey border-[1px] border-LightBluishGrey cursor-pointer"
         >
           <div className="flex flex-row items-center gap-2">
             <img src={item.icon} alt="icon" />

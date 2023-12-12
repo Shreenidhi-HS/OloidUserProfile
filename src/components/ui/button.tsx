@@ -22,7 +22,7 @@ function Button({
       <button
         onClick={onClick}
         type={type}
-        className={`relative rounded-lg font-avenirMedium m-auto w-full border-[1px] border-[#101828] py-4 cursor-pointer
+        className={`relative rounded-lg font-avenirMedium m-auto w-full border-[1px] border-ObsidianDarkBlue py-4 cursor-pointer
         ${variant === "primary" && "bg-[#000000] text-white"}
         ${variant === "secondary" && "bg-[white] text-[#000000] border-[black]"}
         ${className}`}
