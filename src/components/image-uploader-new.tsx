@@ -214,7 +214,7 @@ function ImageUploaderNew() {
                   Selfie
                 </h2>
                 <div className="bg-white rounded-t-[2.75rem] p-8 flex flex-col gap-4 items-center h-full mt-32">
-                  <div className="w-[200px] h-[200px] rounded-[0.75rem] border-[1px] border-[#D0D5DD] overflow-hidden">
+                  <div className="w-[200px] h-[200px] rounded-[0.75rem] border-[1px] border-MediumBluishGrey overflow-hidden">
                     <img
                       src={src}
                       alt={`Captured image`}
@@ -265,7 +265,7 @@ function ImageUploaderNew() {
           <div className="grid grid-cols-3 md:grid-cols-5 gap-2">
             <div className="flex items-center justify-center w-full bg-white">
               <label
-                className="cursor-pointer flex flex-col w-full h-32 border-2 border-dashed border-[#82B4E5] hover:border-[#475467] transition-all duration-300 rounded-[0.75rem]"
+                className="cursor-pointer flex flex-col w-full h-32 border-2 border-dashed border-[#82B4E5] hover:border-CharcolDarkBlue transition-all duration-300 rounded-[0.75rem]"
                 onClick={handleCaptureImage}
               >
                 <div className="flex flex-col items-center justify-center pt-7">
@@ -284,7 +284,7 @@ function ImageUploaderNew() {
                       stroke-linejoin="round"
                     />
                   </svg>
-                  <p className="pt-1 text-sm tracking-wider text-[#475467] group-hover:text-gray-600">
+                  <p className="pt-1 text-sm tracking-wider text-Chaborder-CharcolDarkBlue group-hover:text-gray-600">
                     Add Face
                   </p>
                 </div>

@@ -9,7 +9,9 @@ const DeleteButton: React.FC<DeleteButtonProps> = ({ isActive, onClick }) => {
   return (
     <div
       className={`flex items-center p-[0.563rem] border rounded-[0.5rem] w-[2.375rem] h-[2.375rem] cursor-pointer ${
-        isActive ? "border-[#D0390B] bg-white" : "border-[#D0D5DD] bg-[#ECEAEA]"
+        isActive
+          ? "border-BrightRed bg-white"
+          : "border-MediumBluishGrey bg-LightGrey"
       }`}
       onClick={onClick}
     >
@@ -17,7 +19,7 @@ const DeleteButton: React.FC<DeleteButtonProps> = ({ isActive, onClick }) => {
         xmlns="http://www.w3.org/2000/svg"
         width="20"
         height="20"
-        className={`${isActive ? "fill-[#D0390B]" : ""}`}
+        className={`${isActive ? "fill-BrightRed" : ""}`}
       >
         <g data-name="Group 36766">
           <g data-name="Delete Icon">

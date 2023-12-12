@@ -26,43 +26,17 @@ module.exports = {
     },
     extend: {
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "#51a0fa",
-          foreground: "#fff",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
-        calendar: {
-          DEFAULT: "#4a90e2",
-          foreground: "#4a90e2",
-        },
+        ObsidianDarkBlue: "#101828",
+        ChawkWhite: "#F9FAFB",
+        LightGrey: "#ECEAEA",
+        DarkGrey: "#7D7D7D",
+        CharcolDarkBlue: "#475467",
+        BluishGrey: "#667085",
+        GlassBluishGrey: "#F5F6FA",
+        LightBluishGrey: "#EBECF1",
+        MediumBluishGrey: "#D0D5DD",
+        WaterBlue: "#0B6FD0",
+        BrightRed: "#D0390B",
       },
       fontFamily: {
         avenirLight: ["Avenir-Light", "sans-serif"],

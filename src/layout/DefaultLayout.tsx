@@ -71,7 +71,7 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
   return (
     <>
       {path === "/profile" && <TopHeader user={user} />}
-      <div className={loginPath ? "" : "bg-[#101828]"}>
+      <div className={loginPath ? "" : "bg-ObsidianDarkBlue"}>
         <div>
           {path.startsWith("/credentials") && (
             <div className="flex flex-col gap-[3px] items-center">
@@ -91,7 +91,15 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
           )}
         </div>
         <div>
-          {children}
+          <div
+            className={
+              !path.endsWith("/profile")
+                ? `bg-white mt-3 rounded-t-[1rem] px-6 py-5`
+                : ``
+            }
+          >
+            {children}
+          </div>
 
           {!loginPath && (
             <Navigationbar
