@@ -1,0 +1,6 @@
+<svg id="Eye_open_Eye_closed" data-name="Eye open &amp; Eye closed" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="Eye_open" data-name="Eye open" transform="translate(4815 19778)">
+    <rect id="Bg" width="20" height="20" transform="translate(-4815 -19778)" fill="#fff" opacity="0"/>
+    <path id="Eye_Open-2" data-name="Eye Open" d="M11.5,7.383a9.947,9.947,0,0,0-9.25,6.235,9.979,9.979,0,0,0,18.5,0A9.947,9.947,0,0,0,11.5,7.383Zm0,10.394a4.159,4.159,0,1,1,4.2-4.158A4.193,4.193,0,0,1,11.5,17.777Zm0-6.653a2.494,2.494,0,1,0,2.523,2.494A2.517,2.517,0,0,0,11.5,11.124Z" transform="translate(-4816.5 -19781.619)" fill="#344054"/>
+  </g>
+</svg>
