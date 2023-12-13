@@ -97,9 +97,9 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
         <div>
           <div
             className={
-              !path.endsWith("/profile")
-                ? `bg-white mt-3 rounded-t-[1rem] px-6 py-5`
-                : ``
+              !loginPath && !path.endsWith("/profile")
+                ? "bg-white mt-3 rounded-t-[1rem] px-6 py-5"
+                : ""
             }
           >
             {children}

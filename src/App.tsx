@@ -1,5 +1,4 @@
 import React, { createContext, useState } from "react";
-import { Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import "./App.css";
 import "./services/axiosInterceptor";
@@ -21,9 +20,7 @@ function App() {
     <LoginContext.Provider value={{ authContext, setAuthContext }}>
       <QueryClientProvider client={queryClient}>
         <DefaultLayout>
-          <Routes>
-            <AppRoutes />
-          </Routes>
+          <AppRoutes />
           <Toaster />
         </DefaultLayout>
       </QueryClientProvider>
