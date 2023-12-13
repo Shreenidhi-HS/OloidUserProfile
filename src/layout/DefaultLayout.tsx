@@ -52,6 +52,8 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
   const headerTitle = () => {
     if (path.endsWith("/pin")) {
       return "Pin Credential";
+    } else if (path.endsWith("edit-pin")) {
+      return "Reset Pin";
     } else if (path.endsWith("/badge")) {
       return "Badge Credential";
     } else if (path.endsWith("/faces")) {

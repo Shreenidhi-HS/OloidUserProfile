@@ -2,7 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import Login from "./pages/login";
 import Profile from "./pages/profile";
 import Credential from "./pages/credential";
-import { Badge, Bluetooth, Face, Pin, QRcode } from "./components";
+import { Badge, Bluetooth, EditPin, Face, Pin, QRcode } from "./components";
 import ConsentForm from "./components/face/consent";
 
 export const AppRoutes: React.FC = () => (
@@ -16,7 +16,7 @@ export const AppRoutes: React.FC = () => (
     <Route path="/credentials/badge" element={<Badge />} />
     <Route path="/credentials/bluetooth" element={<Bluetooth />} />
     <Route path="/credentials/pin" element={<Pin />} />
-    <Route path="/credentials/edit-pin" element={<QRcode />} />
+    <Route path="/credentials/edit-pin" element={<EditPin />} />
     <Route path="/credentials/qrcode" element={<QRcode />} />
   </Routes>
 );

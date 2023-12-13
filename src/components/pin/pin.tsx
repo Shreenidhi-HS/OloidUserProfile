@@ -5,7 +5,7 @@ const Pin = () => {
   const navigate = useNavigate();
 
   const onClickEditPin = () => {
-    navigate("/edit-pin");
+    navigate("/credentials/edit-pin");
   };
 
   return (

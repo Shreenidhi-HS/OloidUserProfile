@@ -2,8 +2,8 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import OtpInput from "react-otp-input";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { EmailSchema } from "../schema/email-schema";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "react-query";
 import { LoginApi, getUserData, otpLoginApi } from "../services/login";
 import { LoginContext } from "../App";
@@ -238,6 +238,7 @@ const Login: React.FC = () => {
                     <OtpInput
                       value={otp}
                       onChange={handleOtp}
+                      containerStyle={{ display: "inline-flex" }}
                       numInputs={6}
                       inputStyle={{
                         border: "1.5px solid #D0D5DD",
@@ -255,7 +256,9 @@ const Login: React.FC = () => {
                       )}
                     />
                     {error && (
-                      <p className="text-[red] mt-2 text-md">{error}</p>
+                      <p className="text-BrightRed mt-2 font-avenirMedium text-sm">
+                        {error}
+                      </p>
                     )}
                   </div>
                   <Button

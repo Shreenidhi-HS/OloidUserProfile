@@ -1,10 +1,4 @@
 import { useContext } from "react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "../components/ui/accordian";
 import { LoginContext } from "../App";
 import { useQuery } from "react-query";
 import { getUserData } from "../services/login";
@@ -113,17 +107,6 @@ function Profile() {
           text="Verify"
           variant="primary"
         />
-      </div>
-
-      <div className="mt-[24px] max-w-[90vw] md:w-[82rem] m-auto shadow-md p-2">
-        <Accordion type="single" disabled>
-          <AccordionItem value="item-1">
-            <AccordionTrigger>Share the feedback</AccordionTrigger>
-            <AccordionContent>
-              Yes. It adheres to the WAI-ARIA design pattern.
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
       </div>
     </div>
   );
