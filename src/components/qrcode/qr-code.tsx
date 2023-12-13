@@ -3,7 +3,8 @@ import { LoginContext } from "../../App";
 
 const QRcode = () => {
   const { authContext } = useContext(LoginContext);
-  const expiryDate = authContext.userDetail.QRCode.DyanamicCode.Expiry;
+  const QRCode = authContext?.userDetail?.QRCode;
+  const expiryDate = QRCode?.DyanamicCode?.Expiry;
 
   function formatDate(date) {
     const options = {
@@ -30,19 +31,48 @@ const QRcode = () => {
   const { formattedDate, formattedTime, month } = formatDate(expiryDate);
 
   return (
-    <div className="flex flex-row gap-4">
-      <div>
-        <img
-          src={authContext.userDetail.QRCode.DyanamicCode.Image}
-          alt="qr code credential"
-        />
-      </div>
-      <div className="flex flex-col gap-2 items-start">
+    <div className="flex flex-col gap-4">
+      {QRCode ? (
+        <>
+          <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-[0.313rem]">
+              <p className="font-avenirHeavy text-xs text-BluishGrey">
+                Expiry Date:
+              </p>
+              <p className="font-avenirRegular text-xs text-BluishGrey">
+                {formattedDate} {month} {formattedTime}
+              </p>
+            </div>
+
+            <div>
+              <img src="/assets/download-button.svg" alt="" />
+            </div>
+          </div>
+
+          <img
+            src={QRCode?.DyanamicCode?.Image}
+            alt="qr code credential"
+            className="w-[342px] h-[342px] border border-MediumBluishGrey bg-GlassBluishGrey  rounded-[0.5rem] shadow-md"
+          />
+        </>
+      ) : (
+        <div className="flex flex-col gap-[0.313rem]">
+          <p className="font-avenirHeavy text-xs text-BluishGrey">
+            QR Code is not assigned.
+          </p>
+          <p className="text-[#FF0000] font-avenirMedium text-xs">
+            Please reach out to your local HR or Orientation team member for QR
+            Code enrollment.
+          </p>
+        </div>
+      )}
+
+      {/* <div className="flex flex-col gap-2 items-start">
         <div>
           Expiry Date - {formattedDate} {month} {formattedTime}
         </div>
         <div>{formattedTime}</div>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -1,0 +1,14 @@
+<svg id="Download_Button" data-name="Download Button" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <g id="Rectangle_1588" data-name="Rectangle 1588" fill="#fff" stroke="#d0d5dd" stroke-width="1">
+    <rect width="48" height="48" rx="8" stroke="none"/>
+    <rect x="0.5" y="0.5" width="47" height="47" rx="7.5" fill="none"/>
+  </g>
+  <g id="Download" transform="translate(14 14)">
+    <g id="Bg" opacity="0">
+      <rect id="Rectangle_1585" data-name="Rectangle 1585" width="20" height="20" fill="#fff"/>
+    </g>
+    <g id="Download-2" data-name="Download" transform="translate(0.258 0.301)">
+      <path id="Union_37" data-name="Union 37" d="M4.475,19.4A4.48,4.48,0,0,1,0,14.93V12.377a.851.851,0,0,1,1.7,0V14.93A2.771,2.771,0,0,0,4.475,17.7H15.011a2.78,2.78,0,0,0,2.773-2.77V12.377a.849.849,0,0,1,1.7,0V14.93A4.474,4.474,0,0,1,15.011,19.4Zm5.287-5.412H9.72a.818.818,0,0,1-.532-.207.494.494,0,0,1-.081-.076l-5.793-5.8a.848.848,0,0,1,1.2-1.2l4.382,4.381V.85a.848.848,0,1,1,1.7,0V11.088l4.382-4.381a.848.848,0,0,1,1.2,1.2L10.383,13.7a.8.8,0,0,1-.247.191l0,.006a0,0,0,0,0,0,0,.911.911,0,0,1-.362.088Z" fill="#0b6fd0"/>
+    </g>
+  </g>
+</svg>
