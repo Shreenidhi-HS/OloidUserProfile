@@ -1,11 +1,28 @@
 import { useNavigate } from "react-router-dom";
 import CreateBtn from "../button/createBtn";
+import { useContext, useState } from "react";
+import { LoginContext } from "../../App";
 
 const Pin = () => {
   const navigate = useNavigate();
+  const { authContext } = useContext(LoginContext) as {
+    authContext: { userDetail: { Pin?: string } };
+  };
+  const pin = authContext.userDetail?.Pin;
+  const openEye = "/assets/eye.svg";
+  const closeEye = "/assets/closed-eye.svg";
+  const [eye, setEye] = useState(openEye);
 
   const onClickEditPin = () => {
     navigate("/credentials/edit-pin");
+  };
+
+  const handleEye = () => {
+    if (eye === openEye) {
+      setEye(closeEye);
+    } else {
+      setEye(openEye);
+    }
   };
 
   return (
@@ -15,9 +32,13 @@ const Pin = () => {
           <p className="font-avenirHeavy text-base text-ObsidianDarkBlue">
             Your PIN:
           </p>
-          <p className="font-avenirHeavy text-base text-BluishGrey">******</p>
+          <p className="font-avenirHeavy text-base text-BluishGrey">
+            {eye === openEye ? "******" : pin}
+          </p>
         </div>
-        <img src="/assets/eye.svg" alt="" />
+        <div onClick={handleEye}>
+          <img src={eye} alt="" />
+        </div>
       </div>
       <div className="w-full text-end">
         <CreateBtn

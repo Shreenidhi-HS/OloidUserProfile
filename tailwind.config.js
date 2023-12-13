@@ -37,6 +37,7 @@ module.exports = {
         MediumBluishGrey: "#D0D5DD",
         WaterBlue: "#0B6FD0",
         BrightRed: "#D0390B",
+        PrimaryDarkBlue: "#203650",
       },
       fontFamily: {
         avenirLight: ["Avenir-Light", "sans-serif"],
