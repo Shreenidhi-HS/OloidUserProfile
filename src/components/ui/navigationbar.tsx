@@ -1,3 +1,5 @@
+import { useMutation } from "react-query";
+import { userService } from "../../services";
 import {
   Menubar,
   MenubarContent,
@@ -6,12 +8,27 @@ import {
   MenubarSeparator,
   MenubarTrigger,
 } from "./menubar";
+import { useNavigate } from "react-router-dom";
 
 interface Navbarprops {
   handleTabChange: (id: number) => void;
   activePage: number;
 }
 const Navigationbar = ({ handleTabChange }: Navbarprops) => {
+  const navigate = useNavigate();
+  const logoutMutation = useMutation(userService.logout, {
+    onSuccess: () => {
+      navigate("/login");
+    },
+    onError: (error) => {
+      console.error(error);
+    },
+  });
+
+  const handleLogout = () => {
+    logoutMutation.mutate();
+  };
+
   return (
     <div className="absolute top-[0.875rem] right-[0.688rem]">
       <Menubar>
@@ -27,7 +44,7 @@ const Navigationbar = ({ handleTabChange }: Navbarprops) => {
               Profile
             </MenubarItem>
             <MenubarSeparator />
-            <MenubarItem>Logout</MenubarItem>
+            <MenubarItem onClick={handleLogout}>Logout</MenubarItem>
           </MenubarContent>
         </MenubarMenu>
       </Menubar>
