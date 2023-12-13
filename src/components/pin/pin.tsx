@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import CreateBtn from "./button/createBtn";
+import CreateBtn from "../button/createBtn";
 
 const Pin = () => {
   const navigate = useNavigate();

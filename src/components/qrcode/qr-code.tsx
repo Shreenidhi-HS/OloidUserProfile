@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { LoginContext } from "../App";
+import { LoginContext } from "../../App";
 
 const QRcode = () => {
   const { authContext } = useContext(LoginContext);
