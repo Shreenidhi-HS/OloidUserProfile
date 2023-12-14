@@ -1,16 +1,11 @@
-import React, {
-  createContext,
-  useState,
-  ReactNode,
-  FC,
-  useEffect,
-} from "react";
+import React, { createContext, useState, ReactNode, FC } from "react";
 
 interface AuthData {
   Code: string;
   Email: string;
   Session: string;
   Tenant: string;
+  userDetail: any;
 }
 
 interface AuthContext {
