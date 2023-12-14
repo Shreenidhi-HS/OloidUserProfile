@@ -1,7 +1,7 @@
 interface ButtonProps {
   text: string;
   onClick?: () => void;
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "alert";
   className?: string;
 }
 
@@ -16,6 +16,7 @@ function CreateBtn({ text, onClick, variant, className }: ButtonProps) {
             variant === "secondary" &&
             "bg-[white] text-[#000000] border-[black]"
           }
+          ${variant === "alert" && "bg-BrightRed text-white border-none"}
           ${className}`}
       >
         {text}

@@ -10,17 +10,30 @@ const Nfc = () => {
   };
   const nfc = authContext?.userDetail?.IDSearch1;
   const [deactivateModal, setDeactivateModal] = useState(false);
+  const [activateModal, setActivateModal] = useState(false);
 
   const openDeactivateModal = () => {
     setDeactivateModal(true);
+  };
+
+  const openActivateModal = () => {
+    setActivateModal(true);
   };
 
   const toggleDeactivateModal = () => {
     setDeactivateModal(false);
   };
 
+  const toggleActivateModal = () => {
+    setActivateModal(false);
+  };
+
   const handleDeactivate = () => {
     console.log("Deactivate");
+  };
+
+  const handleActivate = () => {
+    console.log("Activate");
   };
 
   return (
@@ -52,7 +65,11 @@ const Nfc = () => {
                 variant="secondary"
                 onClick={openDeactivateModal}
               />
-              <CreateBtn text="Replace NFC" variant="primary" />
+              <CreateBtn
+                text="Replace NFC"
+                variant="primary"
+                onClick={openActivateModal}
+              />
             </div>
           </div>
         </>
@@ -64,6 +81,20 @@ const Nfc = () => {
         open={deactivateModal}
         toggle={toggleDeactivateModal}
         handleDeactivate={handleDeactivate}
+        title="Are you sure you want to deactivate the NFC?"
+        type="Deactivate"
+        firstCheck="Report lost NFC Tag"
+        secondCheck="Replace NFC Tag"
+      />
+
+      <DeactivateModal
+        open={activateModal}
+        toggle={toggleActivateModal}
+        handleDeactivate={handleActivate}
+        title="Confirm deactivating the current badge and Assign New Badge."
+        type="Activate"
+        firstCheck="Report lost badge"
+        secondCheck="Replace badge"
       />
     </>
   );
