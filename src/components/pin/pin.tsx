@@ -2,13 +2,14 @@ import { useNavigate } from "react-router-dom";
 import CreateBtn from "../button/createBtn";
 import { useContext, useState } from "react";
 import { LoginContext } from "../../App";
+import EditPin from "./edit-pin";
 
 const Pin = () => {
   const navigate = useNavigate();
   const { authContext } = useContext(LoginContext) as {
     authContext: { userDetail: { Pin?: string } };
   };
-  const pin = authContext.userDetail?.Pin;
+  const pin = authContext?.userDetail?.Pin;
   const openEye = "/assets/eye.svg";
   const closeEye = "/assets/closed-eye.svg";
   const [eye, setEye] = useState(openEye);
@@ -27,27 +28,33 @@ const Pin = () => {
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex items-center justify-between bg-GlassBluishGrey border border-LightBluishGrey px-5 py-3 rounded-[0.5rem]">
-        <div className="flex items-center gap-[1.375rem]">
-          <p className="font-avenirHeavy text-base text-ObsidianDarkBlue">
-            Your PIN:
-          </p>
-          <p className="font-avenirHeavy text-base text-BluishGrey">
-            {eye === openEye ? "******" : pin}
-          </p>
-        </div>
-        <div onClick={handleEye}>
-          <img src={eye} alt="" />
-        </div>
-      </div>
-      <div className="w-full text-end">
-        <CreateBtn
-          text="Edit Pin"
-          variant="primary"
-          className="w-[5.625rem]"
-          onClick={onClickEditPin}
-        />
-      </div>
+      {pin ? (
+        <>
+          <div className="flex items-center justify-between bg-GlassBluishGrey border border-LightBluishGrey px-5 py-3 rounded-[0.5rem]">
+            <div className="flex items-center gap-[1.375rem]">
+              <p className="font-avenirHeavy text-base text-ObsidianDarkBlue">
+                Your PIN:
+              </p>
+              <p className="font-avenirHeavy text-base text-BluishGrey">
+                {eye === openEye ? "******" : pin}
+              </p>
+            </div>
+            <div onClick={handleEye}>
+              <img src={eye} alt="" />
+            </div>
+          </div>
+          <div className="w-full text-end">
+            <CreateBtn
+              text="Edit Pin"
+              variant="primary"
+              className="w-[5.625rem]"
+              onClick={onClickEditPin}
+            />
+          </div>
+        </>
+      ) : (
+        <EditPin />
+      )}
     </div>
   );
 };

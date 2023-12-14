@@ -1,6 +1,7 @@
 import React, { useState, ChangeEvent, useContext } from "react";
 import OTPInput from "react-otp-input";
 import Button from "../ui/button";
+import { LoginContext } from "../../App";
 
 interface PinState {
   pin: string;
@@ -8,6 +9,8 @@ interface PinState {
 }
 
 const EditPin: React.FC = () => {
+  const { authContext } = useContext(LoginContext);
+  const apiPin = authContext?.userDetail?.Pin;
   const initialPinState: PinState = {
     pin: "",
     confirmPin: "",
@@ -92,7 +95,7 @@ const EditPin: React.FC = () => {
         />
       </div>
 
-      <Button text="Reset" variant="primary" />
+      <Button text={apiPin ? "Reset" : "Create"} variant="primary" />
     </div>
   );
 };
