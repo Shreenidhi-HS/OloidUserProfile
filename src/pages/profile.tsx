@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { LoginContext } from "../App";
 import { useQuery } from "react-query";
 import { getUserData } from "../services/login";
 import Button from "../components/ui/button";
+import { LoginContext } from "../providers/login-provider";
 
 function Profile() {
   const { authContext, setAuthContext } = useContext(LoginContext);
@@ -81,7 +81,7 @@ function Profile() {
                 Badge ID
               </h2>
               <p className="text-BluishGrey text-sm">
-                {user?.BadgeID ? user.BadgeID : "Not Available"}
+                {user?.SecondaryID ? user?.SecondaryID : "Not Available"}
               </p>
             </div>
           </div>

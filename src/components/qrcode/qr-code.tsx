@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { LoginContext } from "../../App";
+import { LoginContext } from "../../providers/login-provider";
 
 const QRcode = () => {
   const { authContext } = useContext(LoginContext);
@@ -66,13 +66,6 @@ const QRcode = () => {
           </p>
         </div>
       )}
-
-      {/* <div className="flex flex-col gap-2 items-start">
-        <div>
-          Expiry Date - {formattedDate} {month} {formattedTime}
-        </div>
-        <div>{formattedTime}</div>
-      </div> */}
     </div>
   );
 };

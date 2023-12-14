@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
-import { LoginContext } from "../../App";
 import CreateBtn from "../button/createBtn";
 import CreateNfc from "./createNfc";
 import DeactivateModal from "../modal/deactivateModal";
+import { LoginContext } from "../../providers/login-provider";
 
 const Nfc = () => {
   const { authContext } = useContext(LoginContext) as {
@@ -91,10 +91,10 @@ const Nfc = () => {
         open={activateModal}
         toggle={toggleActivateModal}
         handleDeactivate={handleActivate}
-        title="Confirm deactivating the current badge and Assign New Badge."
+        title="Confirm deactivating the current NFC and Assign New NFC."
         type="Activate"
-        firstCheck="Report lost badge"
-        secondCheck="Replace badge"
+        firstCheck="Report lost NFC Tag"
+        secondCheck="Replace NFC Tag"
       />
     </>
   );

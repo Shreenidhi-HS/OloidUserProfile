@@ -1,20 +1,31 @@
-import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { LoginContext } from "../App";
 import { CredData } from "../data/credential-data";
+import { useQuery } from "react-query";
+import { getUserData } from "../services/login";
 
-function Credential() {
+const Credential = () => {
   const navigate = useNavigate();
-  const { authContext } = useContext(LoginContext);
-  const user = authContext.userDetail;
 
   const navigateToUrl = (url: string) => {
     navigate(url);
   };
 
+  const { data: userData, isLoading: isUserDataLoading } = useQuery(
+    "userData",
+    getUserData
+  );
+
+  if (isUserDataLoading) {
+    return (
+      <div className="w-full m-auto flex items-center justify-center bg-white">
+        <div className="animate-spin w-[20px] h-[20px] rounded-full border-t-black border-[#ffffff] border-[2px] m-auto"></div>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col pt-1 gap-6">
-      {CredData(user).map((item, i) => (
+      {CredData(userData?.data?.user).map((item, i) => (
         <div
           key={i}
           onClick={() => navigateToUrl(item.url)}
@@ -42,6 +53,6 @@ function Credential() {
       ))}
     </div>
   );
-}
+};
 
 export default Credential;

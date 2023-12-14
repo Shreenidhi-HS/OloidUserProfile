@@ -8,7 +8,6 @@ import {
   DialogTrigger,
 } from "../ui/dialog";
 import Button from "../ui/button";
-import { LoginContext } from "../../App";
 import Webcam from "react-webcam";
 import { useMutation, useQuery } from "react-query";
 import { addFace, removeFace } from "../../services/credential";
@@ -16,6 +15,7 @@ import { useToast } from "../ui/use-toast";
 import { cn } from "../../utils/utils";
 import { getUserData } from "../../services/login";
 import DeleteButton from "../button/deleteButton";
+import { LoginContext } from "../../providers/login-provider";
 
 function ImageUploaderNew() {
   const { authContext } = useContext(LoginContext);

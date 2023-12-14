@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import CreateBtn from "../button/createBtn";
 import { useContext, useState } from "react";
-import { LoginContext } from "../../App";
 import EditPin from "./edit-pin";
+import { LoginContext } from "../../providers/login-provider";
 
 const Pin = () => {
   const navigate = useNavigate();

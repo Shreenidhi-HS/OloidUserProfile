@@ -6,11 +6,11 @@ import { EmailSchema } from "../schema/email-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "react-query";
 import { LoginApi, getUserData, otpLoginApi } from "../services/login";
-import { LoginContext } from "../App";
 import Lottie from "lottie-react";
 import loadingAnimation from "../assets/animation/idealLockScan/idealLockScan.json";
 import Button from "../components/ui/button";
 import { Input } from "../components/ui/input";
+import { LoginContext } from "../providers/login-provider";
 
 const Login: React.FC = () => {
   const lottieRef = useRef(null);

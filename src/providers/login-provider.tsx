@@ -1,4 +1,10 @@
-import { createContext, useState, ReactNode, FC } from "react";
+import React, {
+  createContext,
+  useState,
+  ReactNode,
+  FC,
+  useEffect,
+} from "react";
 
 interface AuthData {
   Code: string;
@@ -21,16 +27,17 @@ interface AuthContextProviderProps {
 export const AuthContextProvider: FC<AuthContextProviderProps> = ({
   children,
 }) => {
-  const localStorageData = JSON.parse(
-    localStorage.getItem("authContext") || "{}"
-  );
+  const storedData = localStorage.getItem("authContext");
+  const localStorageData = storedData ? JSON.parse(storedData) : undefined;
 
   const [authContext, setAuthContext] = useState<AuthData | undefined>(
     localStorageData
   );
 
+  const contextValue: AuthContext = { authContext, setAuthContext };
+
   return (
-    <LoginContext.Provider value={{ authContext, setAuthContext }}>
+    <LoginContext.Provider value={contextValue}>
       {children}
     </LoginContext.Provider>
   );

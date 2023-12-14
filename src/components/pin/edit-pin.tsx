@@ -1,7 +1,7 @@
 import React, { useState, ChangeEvent, useContext } from "react";
 import OTPInput from "react-otp-input";
 import Button from "../ui/button";
-import { LoginContext } from "../../App";
+import { LoginContext } from "../../providers/login-provider";
 
 interface PinState {
   pin: string;

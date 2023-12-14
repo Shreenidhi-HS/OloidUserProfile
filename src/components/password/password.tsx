@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { LoginContext } from "../../App";
+import { LoginContext } from "../../providers/login-provider";
 
 function Password() {
   const { authContext } = useContext(LoginContext);

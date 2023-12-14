@@ -2,10 +2,10 @@ import { ReactNode, useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Navigationbar from "../components/ui/navigationbar";
 import { navItem } from "../data/layout-data";
-import { LoginContext } from "../App";
 import Navbar from "../components/Navbar";
 import SideBar from "../components/sideBar";
 import TopHeader from "../components/ui/topHeader";
+import { LoginContext } from "../providers/login-provider";
 
 interface DefaultLayoutProps {
   children: ReactNode;
