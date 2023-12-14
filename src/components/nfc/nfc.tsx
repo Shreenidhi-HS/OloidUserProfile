@@ -1,13 +1,27 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { LoginContext } from "../../App";
 import CreateBtn from "../button/createBtn";
 import CreateNfc from "./createNfc";
+import DeactivateModal from "../modal/deactivateModal";
 
 const Nfc = () => {
   const { authContext } = useContext(LoginContext) as {
     authContext: { userDetail: { IDSearch1?: string } };
   };
   const nfc = authContext?.userDetail?.IDSearch1;
+  const [deactivateModal, setDeactivateModal] = useState(false);
+
+  const openDeactivateModal = () => {
+    setDeactivateModal(true);
+  };
+
+  const toggleDeactivateModal = () => {
+    setDeactivateModal(false);
+  };
+
+  const handleDeactivate = () => {
+    console.log("Deactivate");
+  };
 
   return (
     <>
@@ -33,7 +47,11 @@ const Nfc = () => {
             </div>
 
             <div className="flex items-center gap-5">
-              <CreateBtn text="Deactivate NFC" variant="secondary" />
+              <CreateBtn
+                text="Deactivate NFC"
+                variant="secondary"
+                onClick={openDeactivateModal}
+              />
               <CreateBtn text="Replace NFC" variant="primary" />
             </div>
           </div>
@@ -41,6 +59,12 @@ const Nfc = () => {
       ) : (
         <CreateNfc />
       )}
+
+      <DeactivateModal
+        open={deactivateModal}
+        toggle={toggleDeactivateModal}
+        handleDeactivate={handleDeactivate}
+      />
     </>
   );
 };
