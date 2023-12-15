@@ -1,16 +1,17 @@
-import React, { useState, ChangeEvent, useContext } from "react";
+import React, { useState, ChangeEvent } from "react";
 import OTPInput from "react-otp-input";
 import Button from "../ui/button";
-import { LoginContext } from "../../providers/login-provider";
 
 interface PinState {
   pin: string;
   confirmPin: string;
 }
 
-const EditPin: React.FC = () => {
-  const { authContext } = useContext(LoginContext);
-  const apiPin = authContext?.userDetail?.Pin;
+interface EditPinProps {
+  apiPin: string;
+}
+
+const EditPin: React.FC<EditPinProps> = ({ apiPin }) => {
   const initialPinState: PinState = {
     pin: "",
     confirmPin: "",

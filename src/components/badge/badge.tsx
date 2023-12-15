@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import CreateBtn from "../button/createBtn";
 import DeactivateModal from "../modal/deactivateModal";
 import { LoginContext } from "../../providers/login-provider";
+import CreateBadge from "./createBadge";
 
 const Badge = () => {
   const { authContext } = useContext(LoginContext) as {
@@ -71,7 +72,9 @@ const Badge = () => {
           </div>
         </div>
       ) : (
-        <></>
+        <>
+          <CreateBadge />
+        </>
       )}
 
       <DeactivateModal

@@ -1,16 +1,55 @@
-import { useContext, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import CreateBtn from "../button/createBtn";
 import CreateNfc from "./createNfc";
 import DeactivateModal from "../modal/deactivateModal";
-import { LoginContext } from "../../providers/login-provider";
+import _ from "lodash";
+import { useMutation, useQuery } from "react-query";
+import { userService } from "../../services";
+import { getUserData } from "../../services/login";
 
 const Nfc = () => {
-  const { authContext } = useContext(LoginContext) as {
-    authContext: { userDetail: { IDSearch1?: string } };
-  };
-  const nfc = authContext?.userDetail?.IDSearch1;
   const [deactivateModal, setDeactivateModal] = useState(false);
   const [activateModal, setActivateModal] = useState(false);
+  const [nfc, setNfc] = useState("");
+  const [error, setError] = useState("");
+
+  const isAlphanumeric = (str: string) => /^[a-zA-Z0-9-_]+$/.test(str);
+  const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (isAlphanumeric(value) || value === "") {
+      setNfc(_.trim(value));
+      setError("");
+    }
+  };
+
+  const createNfcMutation = useMutation(userService.updateUser, {
+    onSuccess: () => {
+      console.log("nfc");
+    },
+    onError: (error) => {
+      console.error(error);
+    },
+  });
+
+  const { data: userData, isLoading: isUserDataLoading } = useQuery(
+    "userData",
+    getUserData,
+    { enabled: createNfcMutation.isSuccess }
+  );
+
+  const nfcId = userData?.data?.user?.IDSearch1;
+
+  const handleSubmit = () => {
+    setError("");
+    if (!nfc) {
+      return setError("Required");
+    }
+
+    const params = {
+      IDSearch1: nfc,
+    };
+    createNfcMutation.mutate(params);
+  };
 
   const openDeactivateModal = () => {
     setDeactivateModal(true);
@@ -38,7 +77,7 @@ const Nfc = () => {
 
   return (
     <>
-      {nfc ? (
+      {nfcId ? (
         <>
           <div className="flex flex-col gap-5">
             <div className="flex flex-col gap-5 bg-ChawkWhite border border-LightGrey rounded-[0.5rem] py-5 pl-5">
@@ -50,7 +89,7 @@ const Nfc = () => {
               </div>
               <div className="flex flex-col gap-[0.625rem]">
                 <p className="font-avenirHeavy text-xs text-CharcolDarkBlue">
-                  NFC ID - <span className="font-avenirMedium">{nfc} </span>
+                  NFC ID - <span className="font-avenirMedium">{nfcId} </span>
                 </p>
                 <p className="font-avenirHeavy text-xs text-CharcolDarkBlue">
                   Binary Available -{" "}
@@ -74,7 +113,11 @@ const Nfc = () => {
           </div>
         </>
       ) : (
-        <CreateNfc />
+        <CreateNfc
+          nfc={nfc}
+          handleInput={handleInput}
+          handleSubmit={handleSubmit}
+        />
       )}
 
       <DeactivateModal

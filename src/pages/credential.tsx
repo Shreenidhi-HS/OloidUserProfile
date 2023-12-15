@@ -12,7 +12,8 @@ const Credential = () => {
 
   const { data: userData, isLoading: isUserDataLoading } = useQuery(
     "userData",
-    getUserData
+    getUserData,
+    { enabled: !localStorage.getItem("authContext") }
   );
 
   if (isUserDataLoading) {

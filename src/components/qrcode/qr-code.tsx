@@ -1,9 +1,14 @@
-import { useContext } from "react";
-import { LoginContext } from "../../providers/login-provider";
+import { useQuery } from "react-query";
+import { getUserData } from "../../services/login";
 
 const QRcode = () => {
-  const { authContext } = useContext(LoginContext);
-  const QRCode = authContext?.userDetail?.QRCode;
+  const { data: userData, isLoading: isUserDataLoading } = useQuery(
+    "userData",
+    getUserData,
+    { enabled: !localStorage.getItem("authContext") }
+  );
+
+  const QRCode = userData?.data?.user?.QRCode;
   const expiryDate = QRCode?.DyanamicCode?.Expiry;
 
   function formatDate(date) {

@@ -1,15 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import CreateBtn from "../button/createBtn";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import EditPin from "./edit-pin";
-import { LoginContext } from "../../providers/login-provider";
+import { getUserData } from "../../services/login";
+import { useQuery } from "react-query";
 
 const Pin = () => {
   const navigate = useNavigate();
-  const { authContext } = useContext(LoginContext) as {
-    authContext: { userDetail: { Pin?: string } };
-  };
-  const pin = authContext?.userDetail?.Pin;
+  const { data: userData, isLoading: isUserDataLoading } = useQuery(
+    "userData",
+    getUserData
+  );
+  const pin = userData?.data?.user?.Pin;
   const openEye = "/assets/eye.svg";
   const closeEye = "/assets/closed-eye.svg";
   const [eye, setEye] = useState(openEye);
@@ -53,7 +55,7 @@ const Pin = () => {
           </div>
         </>
       ) : (
-        <EditPin />
+        <EditPin apiPin={pin} />
       )}
     </div>
   );
