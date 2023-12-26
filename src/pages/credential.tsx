@@ -12,8 +12,8 @@ const Credential = () => {
 
   const { data: userData, isLoading: isUserDataLoading } = useQuery(
     "userData",
-    getUserData,
-    { enabled: !localStorage.getItem("authContext") }
+    getUserData
+    // { enabled: false }
   );
 
   if (isUserDataLoading) {
@@ -30,7 +30,7 @@ const Credential = () => {
         <div
           key={i}
           onClick={() => navigateToUrl(item.url)}
-          className="flex items-center justify-between px-4 w-full h-[4.5rem] md:w-[62rem] rounded-[0.5rem] m-auto bg-GlassBluishGrey border-[1px] border-LightBluishGrey cursor-pointer"
+          className="flex items-center justify-between px-4 w-full h-[4.5rem] rounded-[0.5rem] m-auto bg-GlassBluishGrey border-[1px] border-LightBluishGrey cursor-pointer"
         >
           <div className="flex flex-row items-center gap-2">
             <img src={item.icon} alt="icon" />
