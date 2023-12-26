@@ -29,7 +29,7 @@ const Pin = () => {
   };
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 max-w-[21.438rem]">
       {pin ? (
         <>
           <div className="flex items-center justify-between bg-GlassBluishGrey border border-LightBluishGrey px-5 py-3 rounded-[0.5rem]">

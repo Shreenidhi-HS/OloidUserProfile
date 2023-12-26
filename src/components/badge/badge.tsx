@@ -39,7 +39,7 @@ const Badge = () => {
   return (
     <>
       {badgeId ? (
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 max-w-[23.875rem]">
           <div className="flex flex-col gap-5 bg-ChawkWhite border border-LightGrey rounded-[0.5rem] py-5 pl-5">
             <div className="flex items-center gap-[0.625rem]">
               <p className="text-ObsidianDarkBlue font-avenirHeavy text-base">

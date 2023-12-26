@@ -3,7 +3,7 @@ import Button from "../ui/button";
 
 const CreateNfc = ({ nfc, handleInput, handleSubmit }) => {
   return (
-    <div className="h-screen max-h-[712px] flex flex-col justify-between">
+    <div className="h-screen max-h-[44.5rem] max-w-[23.875rem] flex flex-col justify-between">
       <div className="flex flex-col gap-10 items-center">
         <p className="font-avenirBlack text-ObsidianDarkBlue text-[1.75rem]">
           Scan your NFC Tag
