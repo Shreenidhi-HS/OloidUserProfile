@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Button from "../ui/button";
 import { Input } from "../ui/input";
+import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
+import { Label } from "../ui/label";
 
 const CreateBadge = () => {
   const [badge, setBadge] = useState("");
@@ -10,13 +12,31 @@ const CreateBadge = () => {
   const handleSubmit = () => {};
 
   return (
-    <div className="h-screen max-h-[44.5rem] max-w-[23.875rem] flex flex-col justify-between">
+    <div className="max-w-[23.875rem] flex flex-col gap-5 justify-between">
       <div className="flex flex-col gap-10 items-center">
+        <img src="/assets/scan-cred.svg" alt="scan" />
         <p className="font-avenirBlack text-ObsidianDarkBlue text-[1.75rem]">
-          Scan your NFC Tag
+          Scan your Badge
         </p>
         <div className="flex flex-col gap-5 w-full">
           <div className="bg-ChawkWhite border border-LightGrey rounded-[0.5rem] p-5">
+            <RadioGroup defaultValue="Decimal">
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="Decimal" id="Decimal" />
+                <Label htmlFor="Decimal">Decimal</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="Hexadecimal" id="Hexadecimal" />
+                <Label htmlFor="Hexadecimal">Hexadecimal</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="Binary" id="Binary" />
+                <Label htmlFor="Binary">Binary</Label>
+              </div>
+            </RadioGroup>
+
+            <div className="flex-1 border-b h-0 border-MediumBluishGrey my-[0.938rem]"></div>
+
             <Input
               label="Scan or Type Data"
               placeholder="Type here"
