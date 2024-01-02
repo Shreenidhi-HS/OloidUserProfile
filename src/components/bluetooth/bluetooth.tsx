@@ -61,7 +61,7 @@ const Bluetooth = () => {
             <p className="font-avenirMedium text-xs text-BluishGrey">
               Bluetooth Credential is not assigned.
             </p>
-            <p className="font-avenirMedium text-xs text-[#FF0000]">
+            <p className="font-avenirMedium text-xs text-BrightRed">
               Please reach out to your local HR or Orientation team member for
               Help.
             </p>

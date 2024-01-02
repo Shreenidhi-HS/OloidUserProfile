@@ -10,7 +10,7 @@ function CreateBtn({ text, onClick, variant, className }: ButtonProps) {
     <>
       <button
         onClick={onClick}
-        className={`relative rounded-lg font-avenirMedium text-sm m-auto border-[1px] border-ObsidianDarkBlue py-[0.625rem] cursor-pointer w-full
+        className={`relative rounded-lg font-avenirMedium text-sm m-auto border-[1px] border-ObsidianDarkBlue px-5 py-[0.625rem] cursor-pointer w-full
           ${variant === "primary" && "bg-[#000000] text-white"}
           ${
             variant === "secondary" &&

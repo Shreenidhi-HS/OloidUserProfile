@@ -12,6 +12,7 @@ import {
   QRcode,
 } from "./components";
 import ConsentForm from "./components/face/consent";
+import CreateBadge from "./components/badge/createBadge";
 
 export const AppRoutes: React.FC = () => (
   <Routes>
@@ -22,6 +23,7 @@ export const AppRoutes: React.FC = () => (
     <Route path="/credentials/faces" element={<Face />} />
     <Route path="/credentials/faces/consent" element={<ConsentForm />} />
     <Route path="/credentials/badge" element={<Badge />} />
+    <Route path="/credentials/create-badge" element={<CreateBadge />} />
     <Route path="/credentials/bluetooth" element={<Bluetooth />} />
     <Route path="/credentials/pin" element={<Pin />} />
     <Route path="/credentials/nfc" element={<Nfc />} />

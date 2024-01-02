@@ -65,7 +65,7 @@ const QRcode = () => {
           <p className="font-avenirHeavy text-xs text-BluishGrey">
             QR Code is not assigned.
           </p>
-          <p className="text-[#FF0000] font-avenirMedium text-xs">
+          <p className="text-BrightRed font-avenirMedium text-xs">
             Please reach out to your local HR or Orientation team member for QR
             Code enrollment.
           </p>
